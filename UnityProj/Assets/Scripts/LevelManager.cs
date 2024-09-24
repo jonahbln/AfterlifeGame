@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    int score = 0;
+    float score = 0;
     TextMeshProUGUI scoreboard;
+    TextMeshProUGUI subscoreboard;
     void Start()
     {
         scoreboard = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        subscoreboard = scoreboard.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         scoreboard.text = "Score: 0";
-
+        subscoreboard.text = "";
     }
 
     // Update is called once per frame
@@ -22,9 +24,10 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    void addScore(int s)
+    public void addScore(float s, string desc)
     {
         score += s;
         scoreboard.text = "Score: " + score;
+        subscoreboard.text = desc + " + " + s;
     }
 }
