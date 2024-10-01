@@ -10,6 +10,7 @@ public class Note : MonoBehaviour
     SpriteRenderer sr;
     Color defaultColor;
     [SerializeField] Color contactColor = Color.magenta;
+    LevelManager levelManager;
 
     void Start()
     {
@@ -17,12 +18,16 @@ public class Note : MonoBehaviour
         rb.gravityScale = gravity;
         sr = GetComponent<SpriteRenderer>();
         defaultColor = sr.color;
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(levelManager.winLossTrigger)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()

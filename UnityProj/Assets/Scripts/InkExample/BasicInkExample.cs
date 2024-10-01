@@ -79,6 +79,8 @@ public class BasicInkExample : MonoBehaviour {
 		// Gets the text from the button prefab
 		Text choiceText = choice.GetComponentInChildren<Text> ();
 		choiceText.text = text;
+		choiceText.font = choiceFont;
+		choiceText.fontSize = choiceFontSize;
 
 		// Make the button expand to fit the text
 		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
@@ -107,4 +109,8 @@ public class BasicInkExample : MonoBehaviour {
 	private Text textPrefab = null;
 	[SerializeField]
 	private Button buttonPrefab = null;
+	[SerializeField]
+	private Font choiceFont;
+	[SerializeField]
+	private int choiceFontSize = 18;
 }

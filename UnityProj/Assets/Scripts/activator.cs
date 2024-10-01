@@ -12,11 +12,13 @@ public class activator : MonoBehaviour
     public Color colorPressed = Color.magenta;
     private bool isPressed = false;
     private bool delay = false;
+    LevelManager levelManager;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         colorUnpressed = sr.color;
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,10 @@ public class activator : MonoBehaviour
             sr.color = colorPressed;
             isPressed = true;
             Invoke("Unpress", 0.5f);
+        }
+        if (levelManager.winLossTrigger)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -68,7 +74,7 @@ public class activator : MonoBehaviour
                 {
                     desc = "Nice!";
                 }
-                FindObjectOfType<LevelManager>().addScore((Mathf.Round(100 * (1 - Mathf.Abs(dist))) / 100), desc);
+                levelManager.addScore((Mathf.Round(100 * (1.5f - Mathf.Abs(dist))) / 100), desc);
 
                 Destroy(collision.gameObject);
             }
