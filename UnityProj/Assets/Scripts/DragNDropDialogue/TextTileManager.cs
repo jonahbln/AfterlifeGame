@@ -5,28 +5,34 @@ using UnityEngine.UI;
 
 public class TextTileManager : MonoBehaviour {
 
-    public Canvas canvas;
-    public GameObject textTilePrefab;     
-    public Transform textTileParent;    
-    public string[] textTileStrings;
-    public GameObject submitToast;
+    public Canvas canvas; // canvas to place the text tiles and drop zones
 
-    public GameObject dropZonePrefab;
-    public Transform dropZoneParent;
+    public GameObject submitToast; // toast message component
+
+    public string[] stage1TextTileStrings;
+    public string[] stage2TextTileStrings;
+    public string[] stage3TextTileStrings;
+
+    public GameObject dropZonePrefab; // prefab to generate the drop zones
+    public Transform dropZoneParent; // parent of the drop zones
+    public GameObject textTilePrefab; // prefab to generate the text tiles  
+    public Transform textTileParent; // parent of the text tiles
     
-    public List<GameObject> dropZones = new List<GameObject>(); 
-
+    private string[][] textTileStrings; // source of the text tiles
     private int numberOfTiles = 0;     
+    private int currentStageIndex = 0;
+    private List<GameObject> dropZones = new List<GameObject>(); 
     private List<GameObject> textTiles = new List<GameObject>();
 
 
     void Start()
     {   
-        numberOfTiles = textTileStrings.Length;
+        textTileStrings = new string[][] { stage1TextTileStrings, stage2TextTileStrings, stage3TextTileStrings };
+        numberOfTiles = GetCurrentStateTextTileStrings().Length;
         GenerateDropZones();
         GenerateTiles();
     }
-    /*
+    /**
     Generates the drop zones and places them on the canvas
     */
     void GenerateDropZones() {
@@ -51,11 +57,12 @@ public class TextTileManager : MonoBehaviour {
         }
     }
     /*
-    Generates the tiles and places them on the canvas
+    Generates the tiles and places them on the canvas,
+    EFFECT: the tiles are added to the textTiles list
     */
     void GenerateTiles()
     {
-        string[] shuffledTextTileStrings = reshuffle(textTileStrings);
+        string[] shuffledTextTileStrings = reshuffle(GetCurrentStateTextTileStrings());
 
         // gets the canvas size and evenly spaces the tiles vertically 
         RectTransform canvasRectTransform = canvas.GetComponent<RectTransform>();
@@ -84,9 +91,34 @@ public class TextTileManager : MonoBehaviour {
     }
 
     /**
+    Advances to the next stage by incrementing the currentStageIndex and generating the new tiles
+    EFFECT: the currentStageIndex is incremented by 1, the text tiles are cleared and new tiles are generated
+    */
+    public void NextStage()
+    {
+        currentStageIndex = (currentStageIndex + 1);
+        numberOfTiles = GetCurrentStateTextTileStrings().Length;
+
+        this.dropZones.ForEach(Destroy);
+        GenerateDropZones();
+
+        this.textTiles.ForEach(Destroy);
+        GenerateTiles();
+    }
+
+    /**
+    * What to do when the user wins the game
+    */
+    public void WinGame()
+    {
+        Debug.Log("You win!");
+        // we should proceed to the next scene
+    }
+
+    /**
     * Shuffles the given array of strings
     */
-    string[] reshuffle(string[] texts)
+    private string[] reshuffle(string[] texts)
     {
         string[] shuffledTexts = (string[])texts.Clone();
 
@@ -101,8 +133,14 @@ public class TextTileManager : MonoBehaviour {
         return shuffledTexts;
     }
 
+    private string[] GetCurrentStateTextTileStrings()
+    {
+        return textTileStrings[currentStageIndex];
+    }
+
     /**
-    * Validates the order of the tiles in the drop zones.
+    * Validates the order of the tiles in the drop zones by checking if the current order
+    * matches the correct order as the textTileStrings
     */
     public bool ValidateOrder()
     {
@@ -118,9 +156,11 @@ public class TextTileManager : MonoBehaviour {
             // Debug.Log("Current Order: " + string.Join(", ", currentOrder));
             // Debug.Log("Text Tile Strings: " + string.Join(", ", textTileStrings));
         }
+
+        string[] currentCorrectOrder = GetCurrentStateTextTileStrings();
         for (int i = 0; i < currentOrder.Length; i++)
         {
-            if (currentOrder[i] != textTileStrings[i])
+            if (currentOrder[i] != currentCorrectOrder[i])
             {
                 return false;
             }
@@ -140,6 +180,13 @@ public class TextTileManager : MonoBehaviour {
         {
             Debug.Log("Correct!");
             ShowToastMessage("Correct!", Color.green);
+            if (currentStageIndex == textTileStrings.Length - 1)
+            {
+                StartCoroutine(WinGameAfterDelay(2f));
+            }
+            else {
+                StartCoroutine(NextStageAfterDelay(2f));
+            }
         }
         else
         {
@@ -163,7 +210,7 @@ public class TextTileManager : MonoBehaviour {
         submitToastImage.color = backgroundColor;
 
         // Start coroutine to hide the toast after 1 second
-        StartCoroutine(HideToastAfterDelay(1f)); 
+        StartCoroutine(HideToastAfterDelay(2f)); 
     }
 
     /**
@@ -173,5 +220,21 @@ public class TextTileManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(delay);
         submitToast.SetActive(false);
+    }
+
+    private IEnumerator NextStageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Next stage!");
+        ShowToastMessage("Next stage!", Color.green);
+        NextStage();
+    }
+
+    private IEnumerator WinGameAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Debug.Log("All stages completed!");
+        ShowToastMessage("All stages completed!", Color.green);
+        WinGame();
     }
 }
