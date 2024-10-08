@@ -11,6 +11,7 @@ public class Note : MonoBehaviour
     Color defaultColor;
     [SerializeField] Color contactColor = Color.magenta;
     LevelManager levelManager;
+    public float fallSpeed = 8.0f;
 
     void Start()
     {
@@ -28,6 +29,9 @@ public class Note : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
+
     }
 
     private void FixedUpdate()

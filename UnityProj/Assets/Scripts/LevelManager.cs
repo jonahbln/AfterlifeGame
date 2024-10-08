@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,22 +12,23 @@ public class LevelManager : MonoBehaviour
     float score = 0;
     [SerializeField] float winScore = 50;
     [SerializeField] float loseScore = -10;
-    [SerializeField] float loseTime = 15;
     TextMeshProUGUI scoreboard;
-    TextMeshProUGUI subscoreboard;
-    public bool winLossTrigger = false;
+    [field: NonSerialized] public bool winLossTrigger = false;
+    private new AudioSource audio;
+    Slider progressSlider;
+
     void Start()
     {
         scoreboard = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        subscoreboard = scoreboard.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        scoreboard.text = "Score: 0";
-        subscoreboard.text = "";
+        audio = GetComponent<AudioSource>();
+        progressSlider = transform.GetChild(0).GetChild(1).GetComponent<Slider>();
+        progressSlider.maxValue = winScore;
+        progressSlider.minValue = loseScore;
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void addScore(float s, string desc)
@@ -34,43 +36,54 @@ public class LevelManager : MonoBehaviour
         score += s;
         if (score >= winScore)
         {
-            subscoreboard.text = "You Win!!!";
-            scoreboard.text = "Score: " + score;
             Win();
         }
-        else if (score <= loseScore || Time.time >= loseTime)
+        else if (score <= loseScore)
         {
-            subscoreboard.text = "You Lose!!!";
-            scoreboard.text = "Score: " + score;
             Lose();
         }
         else
         {
-            scoreboard.text = "Score: " + score;
-            subscoreboard.text = desc + " + " + s;
+            scoreboard.text = desc + " + " + s;
+            progressSlider.value += s;
+        }
+
+        if(score >= 0)
+        {
+            progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green; 
+        }
+        else
+        {
+            progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.red;
         }
     }
 
     public void Win()
     {
+        scoreboard.text = "You Win!!!";
         Time.timeScale = 0.0f;
+        audio.Pause();
         winLossTrigger = true;
     }
 
     public void Lose()
     {
+        scoreboard.text = "You Lose!!!";
         Time.timeScale = 0.0f;
+        audio.Pause();
         winLossTrigger = true;
     }
 
     public void TimeFlow()
     {
+        audio.pitch = 1.0f;
         Time.timeScale = 1.0f;
     }
 
     public void TimeFlow(float scale, float duration)
     {
         Time.timeScale = scale;
+        audio.pitch = scale;
         Invoke("TimeFlow", duration);
     }
 }

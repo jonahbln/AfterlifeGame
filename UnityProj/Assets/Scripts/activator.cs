@@ -13,12 +13,14 @@ public class activator : MonoBehaviour
     private bool isPressed = false;
     private bool delay = false;
     LevelManager levelManager;
+    private AudioSource audioSource;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         colorUnpressed = sr.color;
         levelManager = FindObjectOfType<LevelManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,8 @@ public class activator : MonoBehaviour
         {
             sr.color = colorPressed;
             isPressed = true;
-            Invoke("Unpress", 0.5f);
+            Invoke("Unpress", 0.1f);
+            //audioSource.Play();
         }
         if (levelManager.winLossTrigger)
         {
@@ -40,18 +43,6 @@ public class activator : MonoBehaviour
     {
         sr.color = colorUnpressed;
         isPressed = false;
-        delay = true;
-        Invoke("Delay", 0.15f);
-    }
-
-    void Delay()
-    {
-        delay = false;
-    }
-
-    private void FixedUpdate()
-    {
-
     }
 
     private void OnTriggerStay2D(Collider2D collision)
