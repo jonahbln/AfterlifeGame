@@ -222,6 +222,16 @@ MonoBehaviour:
   - {fileID: 654554401}
   - {fileID: 1815742285}
   - {fileID: 493046615}
+  sounds:
+  - {fileID: 8300000, guid: dff38e3ade87bd846a2b68fe607da288, type: 3}
+  - {fileID: 8300000, guid: 36a35a7cfa728a8459c603cc56d6869f, type: 3}
+  - {fileID: 8300000, guid: 17b073bd5d1d29546abd9107e725b228, type: 3}
+  - {fileID: 8300000, guid: e4c15a16f51c23b4b93b97231909099f, type: 3}
+  - {fileID: 8300000, guid: 855597ea1194cf441a101fd02f2672b2, type: 3}
+  - {fileID: 8300000, guid: 65144192963c58f4080935e1039a2f9c, type: 3}
+  - {fileID: 8300000, guid: 8ccc089dd881d934fb391d48cd70e145, type: 3}
+  - {fileID: 8300000, guid: 9b0e01bd93682df49ab93bf37177e5a9, type: 3}
+  - {fileID: 8300000, guid: ca55cfe09d0da0142bfcd7bb51e421c0, type: 3}
 --- !u!4 &324083303
 Transform:
   m_ObjectHideFlags: 0
