@@ -16,7 +16,6 @@ public class SpawnObject : MonoBehaviour
 
     void Start()
     {
-
         foreach (char c in spawnTimes)
         {
             if (c == '0')
