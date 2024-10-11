@@ -99,11 +99,22 @@ public class TextTileManager : MonoBehaviour {
         currentStageIndex = (currentStageIndex + 1);
         numberOfTiles = GetCurrentStateTextTileStrings().Length;
 
-        this.dropZones.ForEach(Destroy);
-        GenerateDropZones();
+        // this.dropZones.ForEach(Destroy);
+        // for (int i = 0; i < dropZones.size(); i++)
+        // {
+        //     dropZones[i].Destroy();
+        // }
+        // GenerateDropZones();
 
         this.textTiles.ForEach(Destroy);
+        this.textTiles.Clear();
         GenerateTiles();
+        for (int i = 0; i < textTileParent.childCount; i++)
+        {
+            textTiles[i].GetComponent<DraggableTileScript>().SnapToClosestDropZone();
+        }
+        
+
     }
 
     /**
@@ -234,7 +245,7 @@ public class TextTileManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(delay);
         Debug.Log("All stages completed!");
-        ShowToastMessage("All stages completed!", Color.green);
+        ShowToastMessage("Nice work!", Color.green);
         WinGame();
     }
 }

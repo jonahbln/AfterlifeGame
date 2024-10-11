@@ -26,7 +26,7 @@ public class DraggableTileScript : MonoBehaviour, IDragHandler, IEndDragHandler
         InitializeDropZones();
     }
 
-    void InitializeDropZones()
+    public void InitializeDropZones()
     {
         dropZones = new List<GameObject>();
         GameObject[] dropZoneObjects = GameObject.FindGameObjectsWithTag(dropZoneTag);
@@ -123,7 +123,7 @@ public class DraggableTileScript : MonoBehaviour, IDragHandler, IEndDragHandler
     }
 
     // snaps to the closest drop zone 
-    private void SnapToClosestDropZone()
+    public void SnapToClosestDropZone()
     {
         GameObject otherDropZone = null;
         float closestDistance = Mathf.Infinity;
@@ -131,6 +131,8 @@ public class DraggableTileScript : MonoBehaviour, IDragHandler, IEndDragHandler
         foreach (var dropZone in dropZones)
         {
             RectTransform dropZoneRect = dropZone.GetComponent<RectTransform>();
+            // Debug.Log(dropZoneRect.anchoredPosition);
+            // Debug.Log(rectTransform.anchoredPosition);
             float distance = Vector2.Distance(rectTransform.anchoredPosition, dropZoneRect.anchoredPosition);
             if (distance < closestDistance)
             {
