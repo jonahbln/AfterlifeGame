@@ -7,60 +7,43 @@ using UnityEngine;
 public class SpawnObject : MonoBehaviour
 {
     [SerializeField] GameObject spawnObject;
-    [SerializeField] string spawnTimes;
+    [SerializeField] float[] spawnTimes;
     Queue<bool> spawnArray = new Queue<bool>();
-    Queue<bool> spawnArray2 = new Queue<bool>();
-    bool loop = false;
-    public float quarterNoteDuration = .576923f;
     private float timePassed = 0f;
+    public bool songStarted = false;
 
     void Start()
     {
-        foreach (char c in spawnTimes)
-        {
-            if (c == '0')
-            {
-                spawnArray.Enqueue(false);
-            }
-            else if (c == '1')
-            {
-                spawnArray.Enqueue(true);
-            }
-        }
+
+    }
+
+    void Note()
+    {
+        GameObject obj = (GameObject)Instantiate(spawnObject, transform.position, transform.rotation);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        timePassed += Time.deltaTime;
-        if (timePassed >= quarterNoteDuration)
+        if (songStarted)
         {
-            Notes();
-            timePassed = 0f;
+            foreach (float f in spawnTimes)
+            {
+                Invoke("Note", f);
+            }
+            songStarted = false;
         }
+    }
+
+    public void StartSong()
+    {
+        songStarted = true;
     }
 
     void Notes()
     {
-        bool thisNote;
-        if (!loop)
-        {
-            thisNote = spawnArray.Dequeue();
-            spawnArray2.Enqueue(thisNote);
-        }
-        else
-        {
-            thisNote = spawnArray2.Dequeue();
-            spawnArray.Enqueue(thisNote);
-        }
-        if(spawnArray.Count == 0)
-        {
-            loop = true;
-        }
-        else if(spawnArray2.Count == 0)
-        {
-            loop = false;
-        }
+        bool thisNote = spawnArray.Dequeue();
 
         if (thisNote)
         {

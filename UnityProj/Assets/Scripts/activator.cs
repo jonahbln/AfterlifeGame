@@ -14,6 +14,7 @@ public class activator : MonoBehaviour
     private bool delay = false;
     LevelManager levelManager;
     private AudioSource audioSource;
+    private bool hitDelay = false;
 
     void Start()
     {
@@ -31,7 +32,6 @@ public class activator : MonoBehaviour
             sr.color = colorPressed;
             isPressed = true;
             Invoke("Unpress", 0.1f);
-            //audioSource.Play();
         }
         if (levelManager.winLossTrigger)
         {
@@ -47,10 +47,12 @@ public class activator : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Note"))
+        if(collision.gameObject.CompareTag("Note") && !hitDelay)
         {
             if (isPressed)
             {
+                hitDelay = true;
+                Invoke("HitDelay", 0.125f);
                 float dist = transform.position.y - collision.transform.position.y;
                 string desc;
                 if (dist > 0.15)
@@ -70,6 +72,11 @@ public class activator : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+    }
+
+    void HitDelay()
+    {
+        hitDelay = false;
     }
 
 }
