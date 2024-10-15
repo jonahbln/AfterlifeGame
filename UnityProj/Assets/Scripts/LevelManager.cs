@@ -17,6 +17,11 @@ public class LevelManager : MonoBehaviour
     private new AudioSource audio;
     Slider progressSlider;
 
+    private void Awake()
+    {
+        Time.timeScale = 0f;
+    }
+
     void Start()
     {
         scoreboard = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -24,11 +29,18 @@ public class LevelManager : MonoBehaviour
         progressSlider = transform.GetChild(0).GetChild(1).GetComponent<Slider>();
         progressSlider.maxValue = winScore;
         progressSlider.minValue = loseScore;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void StartSong()
+    {
+        audio.Play();
+        Time.timeScale = 1f;
     }
 
     public void addScore(float s, string desc)
