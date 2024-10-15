@@ -84,6 +84,8 @@ public class DraggableTileScript : MonoBehaviour, IDragHandler, IEndDragHandler
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
 
         rectTransform.anchoredPosition = newPosition;
+
+        // ShiftTiles();
     }
 
     /**
@@ -122,6 +124,44 @@ public class DraggableTileScript : MonoBehaviour, IDragHandler, IEndDragHandler
         return closestDropZone;
     }
 
+    // temporarily shift to the drop zones
+    public void ShiftTiles()
+    {
+        GameObject otherDropZone = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var dropZone in dropZones)
+        {
+            RectTransform dropZoneRect = dropZone.GetComponent<RectTransform>();
+            float distance = Vector2.Distance(rectTransform.anchoredPosition, dropZoneRect.anchoredPosition);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                otherDropZone = dropZone;
+            }
+        }
+
+        DropZoneScript otherDropZoneScript = otherDropZone.GetComponent<DropZoneScript>();
+        if (otherDropZoneScript != null) 
+        {   
+            GameObject otherDraggableTile = otherDropZoneScript.currentTile;
+            if (otherDraggableTile != gameObject) {
+                GameObject originalDropZone = GetOriginalDropZone();
+
+                RectTransform otherDropZoneRect = otherDropZone.GetComponent<RectTransform>();
+
+                RectTransform otherDraggableTileRect = otherDraggableTile.GetComponent<RectTransform>();
+                DraggableTileScript otherDraggableTileScript = otherDraggableTile.GetComponent<DraggableTileScript>();
+
+                if (originalPosition != otherDropZoneRect.anchoredPosition) {
+                    otherDraggableTileRect.anchoredPosition = originalPosition;
+
+                    originalPosition = otherDropZoneRect.anchoredPosition;
+                }
+            }
+        }
+    }
+
     // snaps to the closest drop zone 
     public void SnapToClosestDropZone()
     {
@@ -131,8 +171,6 @@ public class DraggableTileScript : MonoBehaviour, IDragHandler, IEndDragHandler
         foreach (var dropZone in dropZones)
         {
             RectTransform dropZoneRect = dropZone.GetComponent<RectTransform>();
-            // Debug.Log(dropZoneRect.anchoredPosition);
-            // Debug.Log(rectTransform.anchoredPosition);
             float distance = Vector2.Distance(rectTransform.anchoredPosition, dropZoneRect.anchoredPosition);
             if (distance < closestDistance)
             {
@@ -156,7 +194,7 @@ public class DraggableTileScript : MonoBehaviour, IDragHandler, IEndDragHandler
 
                 originalDropZoneScript.currentTile = otherDropZoneScript.currentTile;
                 otherDropZoneScript.currentTile = gameObject;
-
+                
                 rectTransform.anchoredPosition = otherDropZoneRect.anchoredPosition;
                 otherDraggableTileRect.anchoredPosition = originalPosition;
 

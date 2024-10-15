@@ -9,6 +9,8 @@ public class TextTileManager : MonoBehaviour {
 
     public GameObject submitToast; // toast message component
 
+    public string[] storyTileStrings; // list of titles for each stage
+
     public string[] stage1TextTileStrings;
     public string[] stage2TextTileStrings;
     public string[] stage3TextTileStrings;
@@ -31,7 +33,9 @@ public class TextTileManager : MonoBehaviour {
         numberOfTiles = GetCurrentStateTextTileStrings().Length;
         GenerateDropZones();
         GenerateTiles();
+        SetStoryTitle();
     }
+
     /**
     Generates the drop zones and places them on the canvas
     */
@@ -56,6 +60,7 @@ public class TextTileManager : MonoBehaviour {
             dropZones.Add(newDropZone);
         }
     }
+
     /*
     Generates the tiles and places them on the canvas,
     EFFECT: the tiles are added to the textTiles list
@@ -89,6 +94,14 @@ public class TextTileManager : MonoBehaviour {
             textTiles.Add(newTile);
         }
     }
+    
+    /**
+    Sets the story title for the current stage
+    */
+    void SetStoryTitle() {
+        Text storyTitle = GameObject.Find("StoryTitle").GetComponent<Text>();
+        storyTitle.text = storyTileStrings[currentStageIndex];
+    }
 
     /**
     Advances to the next stage by incrementing the currentStageIndex and generating the new tiles
@@ -109,12 +122,7 @@ public class TextTileManager : MonoBehaviour {
         this.textTiles.ForEach(Destroy);
         this.textTiles.Clear();
         GenerateTiles();
-        for (int i = 0; i < textTileParent.childCount; i++)
-        {
-            textTiles[i].GetComponent<DraggableTileScript>().SnapToClosestDropZone();
-        }
-        
-
+        SetStoryTitle();
     }
 
     /**
@@ -189,7 +197,6 @@ public class TextTileManager : MonoBehaviour {
 
         if (ValidateOrder())
         {
-            Debug.Log("Correct!");
             ShowToastMessage("Correct!", Color.green);
             if (currentStageIndex == textTileStrings.Length - 1)
             {
@@ -201,7 +208,6 @@ public class TextTileManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Incorrect!");
             ShowToastMessage("Incorrect!", Color.red);
         }
     }
@@ -236,7 +242,6 @@ public class TextTileManager : MonoBehaviour {
     private IEnumerator NextStageAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log("Next stage!");
         ShowToastMessage("Next stage!", Color.green);
         NextStage();
     }
@@ -244,7 +249,6 @@ public class TextTileManager : MonoBehaviour {
     private IEnumerator WinGameAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log("All stages completed!");
         ShowToastMessage("Nice work!", Color.green);
         WinGame();
     }
