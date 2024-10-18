@@ -12,10 +12,17 @@ public class LevelManager : MonoBehaviour
     float score = 0;
     [SerializeField] float winScore = 50;
     [SerializeField] float loseScore = -10;
+    [SerializeField] public TextAsset spawnTimes;
     TextMeshProUGUI scoreboard;
     [field: NonSerialized] public bool winLossTrigger = false;
-    private new AudioSource audio;
+    public new AudioSource audio;
+    private float timePassed;
+    private bool songStarted;
     Slider progressSlider;
+
+    public List<float> FlowstartTimes;
+    public List<float> Flowscales;
+    public List<float> Flowdurations;
 
     private void Awake()
     {
@@ -35,10 +42,22 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (songStarted)
+        {
+            timePassed += Time.deltaTime;
+            if (FlowstartTimes.Count > 0 && FlowstartTimes[0] <= timePassed)
+            {
+                TimeFlow(Flowscales[0], Flowdurations[0]);
+                Flowdurations.RemoveAt(0);
+                Flowscales.RemoveAt(0);
+                FlowstartTimes.RemoveAt(0);
+            }
+        }
     }
 
     public void StartSong()
     {
+        songStarted = true;
         audio.Play();
         Time.timeScale = 1f;
     }
@@ -60,9 +79,9 @@ public class LevelManager : MonoBehaviour
             progressSlider.value += s;
         }
 
-        if(score >= 0)
+        if (score >= 0)
         {
-            progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green; 
+            progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green;
         }
         else
         {
