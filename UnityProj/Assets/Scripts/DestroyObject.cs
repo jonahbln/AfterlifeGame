@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    [SerializeField] float delay = 5f;
+    [SerializeField] float delay = 10f;
     void Start()
     {
         Invoke("DestroySelf", delay);

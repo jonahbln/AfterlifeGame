@@ -13,12 +13,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float winScore = 50;
     [SerializeField] float loseScore = -10;
     [SerializeField] public TextAsset spawnTimes;
-    TextMeshProUGUI scoreboard;
+    [SerializeField] TextMeshProUGUI scoreboard;
     [field: NonSerialized] public bool winLossTrigger = false;
     public new AudioSource audio;
     private float timePassed;
     private bool songStarted;
-    Slider progressSlider;
+    [SerializeField] Slider progressSlider;
+    public float timeFlow = 0.9f;
 
     public List<float> FlowstartTimes;
     public List<float> Flowscales;
@@ -31,9 +32,6 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        scoreboard = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        audio = GetComponent<AudioSource>();
-        progressSlider = transform.GetChild(0).GetChild(1).GetComponent<Slider>();
         progressSlider.maxValue = winScore;
         progressSlider.minValue = loseScore;
 
@@ -52,6 +50,16 @@ public class LevelManager : MonoBehaviour
                 Flowscales.RemoveAt(0);
                 FlowstartTimes.RemoveAt(0);
             }
+            progressSlider.value -= Time.deltaTime * (Time.time/25);
+            score -= Time.deltaTime * (Time.time / 25);
+            if (score >= -5)
+            {
+                progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green;
+            }
+            else
+            {
+                progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.red;
+            }
         }
     }
 
@@ -59,7 +67,7 @@ public class LevelManager : MonoBehaviour
     {
         songStarted = true;
         audio.Play();
-        Time.timeScale = 1f;
+        Time.timeScale = timeFlow;
     }
 
     public void addScore(float s, string desc)
@@ -77,15 +85,6 @@ public class LevelManager : MonoBehaviour
         {
             scoreboard.text = desc + " + " + s;
             progressSlider.value += s;
-        }
-
-        if (score >= 0)
-        {
-            progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green;
-        }
-        else
-        {
-            progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.red;
         }
     }
 
@@ -107,8 +106,8 @@ public class LevelManager : MonoBehaviour
 
     public void TimeFlow()
     {
-        audio.pitch = 1.0f;
-        Time.timeScale = 1.0f;
+        audio.pitch = timeFlow;
+        Time.timeScale = timeFlow;
     }
 
     public void TimeFlow(float scale, float duration)

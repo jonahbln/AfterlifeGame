@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Json;
 using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.Windows;
@@ -13,12 +14,15 @@ public class SpawnObject : MonoBehaviour
     [SerializeField] char thisNote;
     String spawnTimes;
     List<float> spawnTimesArray = new List<float>();
+    List<float> spawnTimesArray2 = new List<float>();
     private float timePassed = 0f;
     private bool songStarted = false;
+    LevelManager levelManager;
 
     void Start()
     {
-        spawnTimes = FindObjectOfType<LevelManager>().spawnTimes.text;
+        levelManager = FindObjectOfType<LevelManager>();
+        spawnTimes = levelManager.spawnTimes.text;
         bool inRange = false;
         string chunk = "";
         foreach (char c in spawnTimes)
@@ -36,7 +40,7 @@ public class SpawnObject : MonoBehaviour
             {
                 break;
             }
-            else if (inRange)
+            else if (inRange && (Char.IsDigit(c) || c == '.'))
             {
                 chunk += c;
             }
@@ -51,8 +55,16 @@ public class SpawnObject : MonoBehaviour
             timePassed += Time.deltaTime;
             if (spawnTimesArray.Count > 0 && spawnTimesArray[0] <= timePassed)
             {
+                spawnTimesArray2.Add(spawnTimesArray[0]);
                 spawnTimesArray.RemoveAt(0);
                 GameObject obj = (GameObject)Instantiate(spawnObject, transform.position, transform.rotation);
+            }
+            else if (spawnTimesArray.Count == 0)
+            {
+                spawnTimesArray = spawnTimesArray2;
+                timePassed = 0;
+                songStarted = false;
+                // Invoke("StartSong", 5f);
             }
         }
     }
