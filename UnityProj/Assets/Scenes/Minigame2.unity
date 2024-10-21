@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 210340003}
   - component: {fileID: 210340002}
   - component: {fileID: 210340004}
+  - component: {fileID: 210340005}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -634,16 +635,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1c277d71ecc63498482b65763bdcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScore: 100
-  loseScore: -25
+  winScore: 75
+  loseScore: -20
   spawnTimes: {fileID: 4900000, guid: b7d0464190a3f31409df84c99c4f9d77, type: 3}
   scoreboard: {fileID: 55459375}
   audio: {fileID: 210340004}
   progressSlider: {fileID: 343122192}
   timeFlow: 0.9
-  FlowstartTimes: []
-  Flowscales: []
-  Flowdurations: []
+  FlowstartTimes:
+  - 12.5
+  Flowscales:
+  - 0.5
+  Flowdurations:
+  - 10
 --- !u!4 &210340003
 Transform:
   m_ObjectHideFlags: 0
@@ -756,6 +760,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &210340005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210340001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f4388b3803c7b43a450bf6b16f7527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Minigame3
 --- !u!4 &254755718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4094596538053362245, guid: 57529cb24e1fa1649ad5f31924432a8d, type: 3}
@@ -1467,7 +1484,7 @@ MonoBehaviour:
         m_CallState: 2
   hours: 0
   minutes: 1
-  seconds: 5
+  seconds: 0
   startAtRuntime: 1
   hoursDisplay: 0
   minutesDisplay: 0
@@ -1478,7 +1495,7 @@ MonoBehaviour:
   textMeshProText: {fileID: 0}
   standardSlider: {fileID: 0}
   dialSlider: {fileID: 1347713407}
-  timeRemaining: 65
+  timeRemaining: 60
 --- !u!1 &701510979
 GameObject:
   m_ObjectHideFlags: 0

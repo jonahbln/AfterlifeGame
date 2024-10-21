@@ -64,7 +64,6 @@ public class SpawnObject : MonoBehaviour
                 spawnTimesArray = spawnTimesArray2;
                 timePassed = 0;
                 songStarted = false;
-                // Invoke("StartSong", 5f);
             }
         }
     }

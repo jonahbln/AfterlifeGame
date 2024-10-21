@@ -94,6 +94,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0.0f;
         audio.Pause();
         winLossTrigger = true;
+        FindObjectOfType<SceneTransition>().LoadNextScene();
     }
 
     public void Lose()
@@ -102,6 +103,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0.0f;
         audio.Pause();
         winLossTrigger = true;
+        FindObjectOfType<SceneTransition>().ReloadScene();
     }
 
     public void TimeFlow()
