@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 /**
 This class manages the character profiles used for the soul sorting game
@@ -53,8 +54,14 @@ public class SoulSortProfileManager : MonoBehaviour
     void UpdateCurrentCharacterProfileDisplay() {
         Text nameText = GameObject.Find("CharacterProfile/Name").GetComponent<Text>();
         Text descriptionText = GameObject.Find("CharacterProfile/Description").GetComponent<Text>();
+
+        string dialogues = "";
+        if (currentCharacterProfile.characterDialogue.Count() > 0) {
+            dialogues = currentCharacterProfile.characterDialogue.Aggregate((i, j) => i + "\n" + j);
+        }
+
         nameText.text = currentCharacterProfile.characterName;
-        descriptionText.text = currentCharacterProfile.characterDescription;
+        descriptionText.text = dialogues;
     }
 
     /**

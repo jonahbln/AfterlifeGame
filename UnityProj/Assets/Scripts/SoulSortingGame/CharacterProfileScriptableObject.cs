@@ -7,4 +7,6 @@ public class CharacterProfileScriptableObject : ScriptableObject
 {
     public string characterName;
     public string characterDescription;
+    // a list of string for character dialogue
+    public string[] characterDialogue; 
 }

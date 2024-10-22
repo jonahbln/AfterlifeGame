@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Person1
   characterDescription: This is the description of Person 1
+  characterDialogue:
+  - This is the first dialogue
+  - This is the second dialogue
+  - This is the third dialogue
+  - This is the fourth dialogue
+  - This is the fifth dialogue
