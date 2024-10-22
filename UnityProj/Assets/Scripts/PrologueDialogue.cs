@@ -112,10 +112,10 @@ public class PrologueDialogue : MonoBehaviour
     public void doorClicked()
     {
         RemoveChildren();
-        canvas.GetComponent<Image>().enabled = false;
+        canvas.GetComponent<Image>().sprite = keyPadImage;
         doorbutton.interactable = false;
         // Continue gets the next line of the story
-        string text = "A keypad Appears!\n The keys will light up, please follow the pattern. Failure to enter the correct code will result in a randomized code reset.";
+        string text = "You walk up to the door, but there is a keypad. You hear a voice that says:\n The keys will light up, please follow the pattern. Failure to enter the correct code will result in a randomized code reset.";
         // This removes any white space from the text.
         text = text.Trim();
         // Display the text on screen!
@@ -144,4 +144,6 @@ public class PrologueDialogue : MonoBehaviour
     private int choiceFontSize = 18;
     [SerializeField]
     private Button doorbutton;
+    [SerializeField]
+    private Sprite keyPadImage;
 }
