@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueAfterMgame3.unity
     guid: 79411471192ecf54c819277a810b7e05
   - enabled: 1
-    path: Assets/Scenes/Prologue 1.unity
+    path: Assets/Scenes/DialogueAfterMgame1.unity
     guid: 326db396de3f5fd47bf194d5c237fded
   - enabled: 1
     path: Assets/Scenes/Minigame3.unity
