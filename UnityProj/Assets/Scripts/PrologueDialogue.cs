@@ -17,7 +17,7 @@ public class PrologueDialogue : MonoBehaviour
     }
 
     // Creates a new Story object with the compiled story which we can then play!
-    void StartStory()
+    public void StartStory()
     {
         story = new Story(inkJSONAsset.text);
         if (OnCreateStory != null) OnCreateStory(story);
@@ -107,6 +107,23 @@ public class PrologueDialogue : MonoBehaviour
         {
             Destroy(canvas.transform.GetChild(i).gameObject);
         }
+    }
+
+    public void doorClicked()
+    {
+        RemoveChildren();
+        canvas.GetComponent<Image>().enabled = false;
+        doorbutton.interactable = false;
+        // Continue gets the next line of the story
+        string text = "A keypad Appears!\n The keys will light up, please follow the pattern. Failure to enter the correct code will result in a randomized code reset.";
+        // This removes any white space from the text.
+        text = text.Trim();
+        // Display the text on screen!
+        CreateContentView(text);
+        Button choice = CreateChoiceView("Start");
+        choice.onClick.AddListener(delegate {
+            FindObjectOfType<SceneTransition>().LoadNextScene();
+        });
     }
 
     [SerializeField]
