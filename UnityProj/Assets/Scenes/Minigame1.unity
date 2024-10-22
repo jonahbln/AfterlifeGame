@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f4388b3803c7b43a450bf6b16f7527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Minigame2
+  nextSceneName: Prologue 1
 --- !u!1001 &354161920
 PrefabInstance:
   m_ObjectHideFlags: 0

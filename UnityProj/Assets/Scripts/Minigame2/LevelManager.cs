@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
                 FlowstartTimes.RemoveAt(0);
             }
             progressSlider.value -= Time.deltaTime * (Time.time/25);
-            score -= Time.deltaTime * (Time.time / 25);
+            score -= Time.deltaTime * (timePassed / 25);
             if (score >= -5)
             {
                 progressSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green;

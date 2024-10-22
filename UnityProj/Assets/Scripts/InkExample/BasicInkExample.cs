@@ -62,6 +62,12 @@ public class BasicInkExample : MonoBehaviour {
 	void OnClickChoiceButton (Choice choice) {
 		story.ChooseChoiceIndex (choice.index);
 		RefreshView();
+		object doorsAppear = story.variablesState["doorsAppear"];
+
+        if ((int)doorsAppear == 1)
+        {
+			canvas.GetComponent<Image>().enabled = true;
+		}
 	}
 
 	// Creates a textbox showing the the line of text
