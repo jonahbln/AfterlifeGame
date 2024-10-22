@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject[] squares;
     public AudioClip[] sounds;
+    public GameObject[] circles;
     private List<int> randomSequence;
     private int currentStep;
     private bool pressable;
@@ -15,6 +16,9 @@ public class GameController : MonoBehaviour
     private bool isPlayingSound = false;
     private int squareNum = 9;
     private int sequenceNum = 5;
+    private int roundWon = 0;
+    private int roundWonChecker = 0;
+    
 
     void Start()
     {
@@ -83,7 +87,7 @@ public class GameController : MonoBehaviour
         renderer.color = color;
     }
 
-    public void LightUpAllSquares()
+    void LightUpAllSquares()
     {
         foreach (GameObject square in squares)
         {
@@ -111,20 +115,37 @@ public class GameController : MonoBehaviour
                 if (currentStep == randomSequence.Count)
                 {
                     Debug.Log("You Win");
+                    Invoke("roundWin", 1f);
+                    roundWonChecker++;
+                    if (isGameOver())
+                    {
+                        //Go to dialogue
+                        FindObjectOfType<SceneTransition>().LoadNextScene();
+                    }
+                    else
+                    {
+                        pressable = false;
+                        currentStep = 0;
+                        Invoke("LightUpAllSquares", 1.5f);
+                        Invoke("Restart", 2.5f);
+                    }
                 }
             }
             else
             {
+                lostFeedback();
+                roundWonChecker = 0;
+                roundWon = 0;
                 pressable = false;
                 Debug.Log("Incorrect");
                 currentStep = 0;
-                Invoke("LightUpAllSquares", 1f);
-                Invoke("Restart", 1f);
+                Invoke("LightUpAllSquares", 1.5f);
+                Invoke("Restart", 2.5f);
             }
         }
     }
 
-    private void PlaySound(int index)
+    void PlaySound(int index)
     {
         audioSource.clip = sounds[index];
         audioSource.Play();
@@ -132,9 +153,68 @@ public class GameController : MonoBehaviour
         soundTimer = soundPlayTime;
     }
 
-    public void Restart()
+    void Restart()
     {
         GenerateRandomSequence();
         StartCoroutine(SquareSequence());
+    }
+
+    bool isGameOver()
+    {
+        return roundWonChecker == 3;
+    }
+
+    void roundWin()
+    {
+        SpriteRenderer renderer = circles[roundWon].GetComponent<SpriteRenderer>();
+        Color color = renderer.color;
+        color.a = 1f;
+        renderer.color = color;
+        roundWon++;
+    }
+
+    void lostFeedback()
+    {
+        changeRed();
+        Invoke("changeGreen", 2f);
+    }
+
+    void changeRed()
+    {
+        foreach(GameObject circle in circles)
+        {
+            SpriteRenderer renderer = circle.GetComponent<SpriteRenderer>();
+            Color color = renderer.color;
+            color.a = 1f;
+            color.r = 1f;
+            color.g = 0f;
+            renderer.color = color;
+        }
+    }
+
+    void changeGreen()
+    {
+        foreach (GameObject circle in circles)
+        {
+            SpriteRenderer renderer = circle.GetComponent<SpriteRenderer>();
+            Color color = renderer.color;
+            color.a = 0.4f;
+            color.r = 0f;
+            color.g = 1f;
+            renderer.color = color;
+        }
+    }
+
+    void roundLose()
+    {
+        roundWonChecker = 0;
+        while (roundWon > 0)
+        {
+            roundWon--;
+            SpriteRenderer renderer = circles[roundWon].GetComponent<SpriteRenderer>();
+            Color color = renderer.color;
+            color.a = 0.4f;
+            renderer.color = color;
+        }
     }
 }
