@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSONAsset: {fileID: 4900000, guid: efe67f066e52640c796293964895b969, type: 3}
   canvas: {fileID: 1917058132}
-  textPrefab: {fileID: 162960, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
+  textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
   buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
   choiceFont: {fileID: 12800000, guid: 46845d1b7d6ef432cb9e1f7a655602bb, type: 3}
   choiceFontSize: 0
