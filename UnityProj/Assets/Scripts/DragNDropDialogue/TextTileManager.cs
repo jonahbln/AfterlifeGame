@@ -201,10 +201,12 @@ public class TextTileManager : MonoBehaviour {
             ShowToastMessage("Correct!", Color.green);
             if (currentStageIndex == textTileStrings.Length - 1)
             {
-                StartCoroutine(WinGameAfterDelay(2f));
+                // StartCoroutine(WinGameAfterDelay(2f));
+                Invoke("WinGameInvoke", 2);     
             }
             else {
-                StartCoroutine(NextStageAfterDelay(2f));
+                // StartCoroutine(NextStageAfterDelay(2f));
+                Invoke("NextStageInvoke", 2);
             }
         }
         else
@@ -228,7 +230,8 @@ public class TextTileManager : MonoBehaviour {
         submitToastImage.color = backgroundColor;
 
         // Start coroutine to hide the toast after 1 second
-        StartCoroutine(HideToastAfterDelay(2f)); 
+        // StartCoroutine(HideToastAfterDelay(2f)); 
+        Invoke("HideToastInvoke", 2);
     }
 
     /**
@@ -240,6 +243,10 @@ public class TextTileManager : MonoBehaviour {
         submitToast.SetActive(false);
     }
 
+    private void HideToastInvoke() {
+        submitToast.SetActive(false);
+    }
+
     private IEnumerator NextStageAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -247,9 +254,19 @@ public class TextTileManager : MonoBehaviour {
         NextStage();
     }
 
+    private void NextStageInvoke() {
+        ShowToastMessage("Next stage!", Color.green);
+        NextStage();
+    }
+
     private IEnumerator WinGameAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        ShowToastMessage("Nice work!", Color.green);
+        WinGame();
+    }
+
+    private void WinGameInvoke() {
         ShowToastMessage("Nice work!", Color.green);
         WinGame();
     }
