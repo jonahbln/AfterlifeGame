@@ -51,10 +51,6 @@ public class BasicInkExample : MonoBehaviour {
 		// If we've read all the content and there's no choices, the story is finished!
 		else {
 			FindObjectOfType<SceneTransition>().LoadNextScene();
-			Button choice = CreateChoiceView("End of story.\nRestart?");
-			choice.onClick.AddListener(delegate{
-				StartStory();
-			});
 		}
 	}
 
@@ -62,6 +58,7 @@ public class BasicInkExample : MonoBehaviour {
 	void OnClickChoiceButton (Choice choice) {
 		story.ChooseChoiceIndex (choice.index);
 		RefreshView();
+		canvas.GetComponent<Image>().enabled = true;
 	}
 
 	// Creates a textbox showing the the line of text

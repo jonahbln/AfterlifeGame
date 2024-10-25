@@ -76,14 +76,19 @@ public class GameController : MonoBehaviour
 
     IEnumerator PressSquareEffect(int index)
     {
-        SpriteRenderer renderer = squares[index].GetComponent<SpriteRenderer>();
+        
+        SpriteRenderer renderer = squares[index].transform.GetChild(0).GetComponent<SpriteRenderer>();
         Color color = renderer.color;
 
-        color.a = 0.5f;
+        color.r = 0.5f;
+        color.g = 0.5f;
+        color.b = 0.5f;
         renderer.color = color;
         PlaySound(index);
         yield return new WaitForSeconds(1f);
-        color.a = 1f;
+        color.r = 1f;
+        color.g = 1f;
+        color.b = 1f;
         renderer.color = color;
     }
 
@@ -91,9 +96,11 @@ public class GameController : MonoBehaviour
     {
         foreach (GameObject square in squares)
         {
-            SpriteRenderer renderer = square.GetComponent<SpriteRenderer>();
+            SpriteRenderer renderer = square.transform.GetChild(0).GetComponent<SpriteRenderer>();
             Color color = renderer.color;
-            color.a = 1f;
+            color.r = 1f;
+            color.g = 1f;
+            color.b = 1f;
             renderer.color = color;
         }
     }
@@ -105,9 +112,11 @@ public class GameController : MonoBehaviour
             if (squareIndex == randomSequence[currentStep])
             {
                 currentStep++;
-                SpriteRenderer renderer = squares[squareIndex].GetComponent<SpriteRenderer>();
+                SpriteRenderer renderer = squares[squareIndex].transform.GetChild(0).GetComponent<SpriteRenderer>();
                 Color color = renderer.color;
-                color.a = 0.5f;
+                color.r = 0.5f;
+                color.g = 0.5f;
+                color.b = 0.5f;
                 renderer.color = color;
                 PlaySound(squareIndex);
                 Debug.Log("Correct");
@@ -120,7 +129,7 @@ public class GameController : MonoBehaviour
                     if (isGameOver())
                     {
                         //Go to dialogue
-                        FindObjectOfType<SceneTransition>().LoadNextScene();
+                        Invoke("goNextScene", 1f);
                     }
                     else
                     {
@@ -205,16 +214,8 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void roundLose()
+    void goNextScene()
     {
-        roundWonChecker = 0;
-        while (roundWon > 0)
-        {
-            roundWon--;
-            SpriteRenderer renderer = circles[roundWon].GetComponent<SpriteRenderer>();
-            Color color = renderer.color;
-            color.a = 0.4f;
-            renderer.color = color;
-        }
+        FindObjectOfType<SceneTransition>().LoadNextScene();
     }
 }

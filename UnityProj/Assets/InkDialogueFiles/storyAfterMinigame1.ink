@@ -1,7 +1,5 @@
 VAR playerChoice = 0
-- The door opens to reveal a portal.
-* [Plunge into the portal]
-- The moment a part of your body touches the portal, you feel your whole body being sucked in... and by the time you realize, you are transported to a whole new dimension.
+- As the door opens, you feel your whole body being sucked in... and by the time you realize, you are transported to a whole new dimension.
 * [Look around]
 - [???] Oh! Look at that, a mere mortal has stumbled upon my world. Where did you come from?
 * [Where am I?] 
@@ -18,7 +16,7 @@ VAR playerChoice = 0
 * [I just came through a door]
   [ANVOLTO] A door? You must be very special then if the doors of Fate came to you.
   ** [Doors of Fate? I don’t understand.]
-- [ANVOLTO] Hmm. I have an idea! I can restore your memories if you wish.
+- [ANVOLTO] Hmm. I have an idea! You seem to have lost your memories, but I can restore your them if you wish.
 * [That would be great.] 
 * [Yes, please]
 - [ANVOLTO] Okay! I’ll do it…
