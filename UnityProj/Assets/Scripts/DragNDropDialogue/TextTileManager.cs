@@ -202,11 +202,13 @@ public class TextTileManager : MonoBehaviour {
             if (currentStageIndex == textTileStrings.Length - 1)
             {
                 // StartCoroutine(WinGameAfterDelay(2f));
-                Invoke("WinGameInvoke", 2);     
+                // Invoke("WinGameInvoke", 2);
+                WinGame();
             }
             else {
                 // StartCoroutine(NextStageAfterDelay(2f));
-                Invoke("NextStageInvoke", 2);
+                // Invoke("NextStageInvoke", 2);
+                NextStage();
             }
         }
         else
@@ -231,7 +233,7 @@ public class TextTileManager : MonoBehaviour {
 
         // Start coroutine to hide the toast after 1 second
         // StartCoroutine(HideToastAfterDelay(2f)); 
-        Invoke("HideToastInvoke", 2);
+        Invoke("HideToastInvoke", 1f);
     }
 
     /**
