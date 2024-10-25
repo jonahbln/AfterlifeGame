@@ -198,16 +198,18 @@ public class TextTileManager : MonoBehaviour {
 
         if (ValidateOrder())
         {
-            ShowToastMessage("Correct!", Color.green);
+            // ShowToastMessage("Correct!", Color.green);
             if (currentStageIndex == textTileStrings.Length - 1)
             {
                 // StartCoroutine(WinGameAfterDelay(2f));
                 // Invoke("WinGameInvoke", 2);
+                submitToast.SetActive(false);
                 WinGame();
             }
             else {
                 // StartCoroutine(NextStageAfterDelay(2f));
                 // Invoke("NextStageInvoke", 2);
+                submitToast.SetActive(false);
                 NextStage();
             }
         }
