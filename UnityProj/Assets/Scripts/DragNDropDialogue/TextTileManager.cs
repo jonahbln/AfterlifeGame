@@ -132,6 +132,7 @@ public class TextTileManager : MonoBehaviour {
     {
         Debug.Log("You win!");
         // we should proceed to the next scene
+        FindObjectOfType<SceneTransition>().LoadNextScene();
     }
 
     /**

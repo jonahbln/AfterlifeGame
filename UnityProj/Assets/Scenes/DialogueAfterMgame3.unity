@@ -234,7 +234,8 @@ GameObject:
   - component: {fileID: 709817883}
   - component: {fileID: 709817881}
   - component: {fileID: 709817884}
-  - component: {fileID: 709817885}
+  - component: {fileID: 709817887}
+  - component: {fileID: 709817888}
   m_Layer: 0
   m_Name: Scene Controller
   m_TagString: Untagged
@@ -255,22 +256,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 27
---- !u!4 &709817883
-Transform:
+--- !u!224 &709817883
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709817880}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 456, y: 470, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1917058136}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 456, y: 470}
+  m_SizeDelta: {x: 1152, y: 648}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709817884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,8 +288,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f4388b3803c7b43a450bf6b16f7527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 
---- !u!114 &709817885
+  nextSceneName: Prologue
+--- !u!222 &709817887
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709817880}
+  m_CullTransparentMesh: 1
+--- !u!114 &709817888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,16 +306,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 709817880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f6c1142c082b54eb92516b1089f484, type: 3}
+  m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONAsset: {fileID: 4900000, guid: 09445e5ea12e5b440ac5ab6e5e35b695, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: 793842226a8f5a444afe58e2c43e136b, type: 3}
   canvas: {fileID: 1917058132}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
   buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
   choiceFont: {fileID: 12800000, guid: 46845d1b7d6ef432cb9e1f7a655602bb, type: 3}
   choiceFontSize: 0
-  doorbutton: {fileID: 1917058140}
 --- !u!1 &1461248100
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +485,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917058131}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -486,7 +498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cb580cac43264451ea08b8b20d41aa5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab0077421a192410490c05658b8466c3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

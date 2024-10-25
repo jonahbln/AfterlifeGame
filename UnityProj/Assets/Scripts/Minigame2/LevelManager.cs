@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
                 Flowscales.RemoveAt(0);
                 FlowstartTimes.RemoveAt(0);
             }
-            progressSlider.value -= Time.deltaTime * (Time.time/25);
+            progressSlider.value -= Time.deltaTime * (timePassed / 25);
             score -= Time.deltaTime * (timePassed / 25);
             if (score >= -5)
             {
