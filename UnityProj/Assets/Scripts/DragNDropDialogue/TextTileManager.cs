@@ -29,6 +29,7 @@ public class TextTileManager : MonoBehaviour {
 
     void Start()
     {   
+        Time.timeScale = 1;
         textTileStrings = new string[][] { stage1TextTileStrings, stage2TextTileStrings, stage3TextTileStrings };
         numberOfTiles = GetCurrentStateTextTileStrings().Length;
         GenerateDropZones();
@@ -198,19 +199,15 @@ public class TextTileManager : MonoBehaviour {
 
         if (ValidateOrder())
         {
-            // ShowToastMessage("Correct!", Color.green);
+            ShowToastMessage("Correct!", Color.green);
             if (currentStageIndex == textTileStrings.Length - 1)
             {
                 // StartCoroutine(WinGameAfterDelay(2f));
-                // Invoke("WinGameInvoke", 2);
-                submitToast.SetActive(false);
-                WinGame();
+                Invoke("WinGameInvoke", 2f);
             }
             else {
                 // StartCoroutine(NextStageAfterDelay(2f));
-                // Invoke("NextStageInvoke", 2);
-                submitToast.SetActive(false);
-                NextStage();
+                Invoke("NextStageInvoke", 2f);
             }
         }
         else
@@ -233,9 +230,8 @@ public class TextTileManager : MonoBehaviour {
         submitToastText.text = message;
         submitToastImage.color = backgroundColor;
 
-        // Start coroutine to hide the toast after 1 second
-        // StartCoroutine(HideToastAfterDelay(2f)); 
-        Invoke("HideToastInvoke", 1f);
+        // Start coroutine to hide the toast after 2 seconds
+        Invoke("HideToastInvoke", 2f);
     }
 
     /**
@@ -253,7 +249,9 @@ public class TextTileManager : MonoBehaviour {
 
     private IEnumerator NextStageAfterDelay(float delay)
     {
+        Debug.Log("Starting coroutine");
         yield return new WaitForSeconds(delay);
+        Debug.Log("Next stage!");
         ShowToastMessage("Next stage!", Color.green);
         NextStage();
     }
@@ -266,6 +264,7 @@ public class TextTileManager : MonoBehaviour {
     private IEnumerator WinGameAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        Debug.Log("You win!");
         ShowToastMessage("Nice work!", Color.green);
         WinGame();
     }
