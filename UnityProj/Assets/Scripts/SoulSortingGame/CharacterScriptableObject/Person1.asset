@@ -10,7 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a0a818aeb988486bbccabe4159b9827, type: 3}
-  m_Name: Person2
+  m_Name: Person1
   m_EditorClassIdentifier: 
-  characterName: Person2
-  characterDescription: This is the description of Person 2
+  characterName: Person1
+  characterDescription: This is the description of Person 1
+  characterDialogue:
+  - This is the first dialogue
+  - This is the second dialogue
+  - This is the third dialogue
+  - This is the fourth dialogue
+  - This is the fifth dialogue
+  inkJSONAsset: {fileID: 4900000, guid: c63e22159f0b94e918c11bb1d8a8ea39, type: 3}

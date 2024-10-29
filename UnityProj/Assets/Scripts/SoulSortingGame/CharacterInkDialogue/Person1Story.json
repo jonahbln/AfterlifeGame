@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[[["^This is my dialogue","\n","ev","str","^Continue","/str","/ev",{"*":".^.c-0","flg":20},{"c-0":["\n",{"->":"0.g-1"},{"#f":5}],"#f":5,"#n":"g-0"}],{"g-1":["^This is my dialogue 2","\n","ev","str","^Continue","/str","/ev",{"*":".^.c-1","flg":20},{"c-1":["\n",{"->":"0.g-2"},{"#f":5}],"#f":5}],"g-2":["done",{"#f":5}]}],"done",{"#f":1}],"listDefs":{}}

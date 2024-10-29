@@ -18,10 +18,12 @@ public class SoulSortProfileManager : MonoBehaviour
     private List<CharacterProfileScriptableObject> noCharacterProfiles; // the profiles the player has said no to 
     private Button yesButton;
     private Button noButton;
+    private CallableInkDialogue inkDialogueManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        inkDialogueManager = FindObjectOfType<CallableInkDialogue>();
         yesButton = GameObject.Find("YesButton").GetComponent<Button>();
         noButton = GameObject.Find("NoButton").GetComponent<Button>();
         characterProfiles = new Queue<CharacterProfileScriptableObject>(allCharacterProfiles);
@@ -52,16 +54,18 @@ public class SoulSortProfileManager : MonoBehaviour
     Updates the information displayed about the character profile
     */
     void UpdateCurrentCharacterProfileDisplay() {
-        Text nameText = GameObject.Find("CharacterProfile/Name").GetComponent<Text>();
-        Text descriptionText = GameObject.Find("CharacterProfile/Description").GetComponent<Text>();
+        inkDialogueManager.MountStory(currentCharacterProfile.inkJSONAsset);
+        inkDialogueManager.StartStory();
+        // Text nameText = GameObject.Find("CharacterProfile/Name").GetComponent<Text>();
+        // Text descriptionText = GameObject.Find("CharacterProfile/Description").GetComponent<Text>();
 
-        string dialogues = "";
-        if (currentCharacterProfile.characterDialogue.Count() > 0) {
-            dialogues = currentCharacterProfile.characterDialogue.Aggregate((i, j) => i + "\n" + j);
-        }
+        // string dialogues = "";
+        // if (currentCharacterProfile.characterDialogue.Count() > 0) {
+        //     dialogues = currentCharacterProfile.characterDialogue.Aggregate((i, j) => i + "\n" + j);
+        // }
 
-        nameText.text = currentCharacterProfile.characterName;
-        descriptionText.text = dialogues;
+        // nameText.text = currentCharacterProfile.characterName;
+        // descriptionText.text = dialogues;
     }
 
     /**

@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 8761820513066748625, guid: c2c63cd5b02dce0458c31d69412b8181, type: 3}
+  thisNote: 2
