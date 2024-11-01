@@ -34,7 +34,7 @@ public class CallableInkDialogue : MonoBehaviour
 	public void StartStory () {
 		story = new Story (inkJSONAsset.text);
         if(OnCreateStory != null) OnCreateStory(story);
-		canvas.GetComponent<Image>().enabled = true;
+		// canvas.GetComponent<Image>().enabled = true;
 		RefreshView();
 	}
 	
