@@ -18,4 +18,8 @@ public class CharacterProfileScriptableObject : ScriptableObject
     // the ink file for the character's dialogue
     [SerializeField]
     public TextAsset inkJSONAsset;
+
+    // true if the character is a good character, false if the character is a bad character
+    [SerializeField]
+    public bool verdict; 
 }

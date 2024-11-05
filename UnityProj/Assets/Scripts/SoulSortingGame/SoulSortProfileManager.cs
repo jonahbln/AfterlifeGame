@@ -56,6 +56,7 @@ public class SoulSortProfileManager : MonoBehaviour
     void UpdateCurrentCharacterProfileDisplay() {
         inkDialogueManager.MountStory(currentCharacterProfile.inkJSONAsset);
         inkDialogueManager.StartStory();
+        Text nameText = GameObject.Find("NameText").GetComponent<Text>();
         // Text nameText = GameObject.Find("CharacterProfile/Name").GetComponent<Text>();
         // Text descriptionText = GameObject.Find("CharacterProfile/Description").GetComponent<Text>();
 
@@ -64,7 +65,10 @@ public class SoulSortProfileManager : MonoBehaviour
         //     dialogues = currentCharacterProfile.characterDialogue.Aggregate((i, j) => i + "\n" + j);
         // }
 
-        // nameText.text = currentCharacterProfile.characterName;
+        nameText.text = currentCharacterProfile.characterName.Trim();
+        if (currentCharacterProfile.characterDescription != null && currentCharacterProfile.characterDescription != "") {
+            nameText.text += " [" + currentCharacterProfile.characterDescription.Trim() + "]";
+        }
         // descriptionText.text = dialogues;
     }
 
@@ -72,7 +76,11 @@ public class SoulSortProfileManager : MonoBehaviour
     When the yes button is clicked, sort the current profile to the yes list
     */
     public void onYesButtonClicked() {
-        ShowToastMessage("It seems like you have chosen wisely", Color.green);
+        if (currentCharacterProfile.verdict) {
+            ShowToastMessage("It seems like you have chosen wisely", Color.green);
+        } else {
+            ShowToastMessage("It seems like you have chosen poorly", Color.red);
+        }
         if (hasMoreProfilesToSort()) {
             Debug.Log("Yes button clicked. Current profile: " + currentCharacterProfile.name);
             yesCharacterProfiles.Add(currentCharacterProfile);
@@ -84,7 +92,11 @@ public class SoulSortProfileManager : MonoBehaviour
     When the no button is clicked, sort the current profile to the no list
     */
     public void onNoButtonClicked() {
-        ShowToastMessage("It seems like you have chosen poorly", Color.red);
+        if (currentCharacterProfile.verdict) {
+            ShowToastMessage("It seems like you have chosen poorly", Color.red);
+        } else {
+            ShowToastMessage("It seems like you have chosen wisely", Color.green);
+        }
         if (hasMoreProfilesToSort()) {
             Debug.Log("No button clicked. Current profile: " + currentCharacterProfile.characterName);
             noCharacterProfiles.Add(currentCharacterProfile);
