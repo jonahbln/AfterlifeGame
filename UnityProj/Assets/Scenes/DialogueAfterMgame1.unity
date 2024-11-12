@@ -272,7 +272,7 @@ MonoBehaviour:
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
   buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
   choiceFont: {fileID: 12800000, guid: 46845d1b7d6ef432cb9e1f7a655602bb, type: 3}
-  choiceFontSize: 0
+  choiceFontSize: 48
 --- !u!4 &709817883
 Transform:
   m_ObjectHideFlags: 0
@@ -459,12 +459,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 48
+    m_Right: 48
+    m_Top: 48
+    m_Bottom: 48
   m_ChildAlignment: 7
-  m_Spacing: 10
+  m_Spacing: 24
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
