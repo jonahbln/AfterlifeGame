@@ -18,6 +18,4 @@
 - You may be able bring them back, if you are lucky. I will send you to my friend and he can help you. Don’t worry he’s super nice.
 * [Thank you ANVOLTO]
 * [I won't let you down]
-- GAME OVER
-* [Start Over]
 -> END

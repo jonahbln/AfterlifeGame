@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f4388b3803c7b43a450bf6b16f7527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: TransitionBetweenMinigame2And3
+  nextSceneName: DialogueAfterMgame2
 --- !u!4 &254755718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4094596538053362245, guid: 57529cb24e1fa1649ad5f31924432a8d, type: 3}
