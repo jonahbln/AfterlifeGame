@@ -8,4 +8,5 @@
 *[Proceed]
 
 - I want to pass into the afterlife and hopefully reunite with my siblings.
-*[Proceed]
+
+[Make your verdict]

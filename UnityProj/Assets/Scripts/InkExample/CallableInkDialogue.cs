@@ -48,7 +48,7 @@ public class CallableInkDialogue : MonoBehaviour
 		// Read all the content until we can't continue any more
 		while (story.canContinue) {
 			// Continue gets the next line of the story
-			string text = story.Continue ();
+			string text = story.Continue();
 			// This removes any white space from the text.
 			text = text.Trim();
 			// Display the text on screen!

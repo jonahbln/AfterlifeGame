@@ -8,4 +8,5 @@
 *[Proceed]
 
 - Does that make me a bad person? I hope not.
-*[Proceed]
+
+[Make your verdict]

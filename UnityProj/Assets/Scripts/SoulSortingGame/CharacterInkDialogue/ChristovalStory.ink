@@ -8,5 +8,5 @@
 *[Proceed]
 
 - I am not an honest man but my intentions are honest – I am just tight on money.
-*[Proceed]
 
+[Make your verdict]

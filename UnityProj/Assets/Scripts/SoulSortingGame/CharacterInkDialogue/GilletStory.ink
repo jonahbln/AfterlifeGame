@@ -5,4 +5,5 @@
 *[Proceed]
 
 - The neighbors call me a nuisance, but I think I am not as bad as the rest of them.
-*[Proceed]
+
+[Make your verdict]

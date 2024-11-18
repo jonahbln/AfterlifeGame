@@ -19,6 +19,9 @@ public class SoulSortProfileManager : MonoBehaviour
     private Button yesButton;
     private Button noButton;
     private CallableInkDialogue inkDialogueManager;
+    private Color correctBackgroundColor = new Color(202f / 255f, 252f / 255f, 164f/ 255f, 1f);
+    private Color incorrectBackgroundColor = new Color(252f / 255f, 164f / 255f, 164f/ 255f, 1f);
+
 
     // Start is called before the first frame update
     void Start()
@@ -77,9 +80,9 @@ public class SoulSortProfileManager : MonoBehaviour
     */
     public void onYesButtonClicked() {
         if (currentCharacterProfile.verdict) {
-            ShowToastMessage("It seems like you have chosen wisely", Color.green);
+            ShowToastMessage("It seems like you have chosen wisely", this.correctBackgroundColor);
         } else {
-            ShowToastMessage("It seems like you have chosen poorly", Color.red);
+            ShowToastMessage("It seems like you have chosen poorly", this.incorrectBackgroundColor);
         }
         if (hasMoreProfilesToSort()) {
             Debug.Log("Yes button clicked. Current profile: " + currentCharacterProfile.name);
@@ -93,9 +96,9 @@ public class SoulSortProfileManager : MonoBehaviour
     */
     public void onNoButtonClicked() {
         if (currentCharacterProfile.verdict) {
-            ShowToastMessage("It seems like you have chosen poorly", Color.red);
+            ShowToastMessage("It seems like you have chosen poorly", this.incorrectBackgroundColor);
         } else {
-            ShowToastMessage("It seems like you have chosen wisely", Color.green);
+            ShowToastMessage("It seems like you have chosen wisely", this.correctBackgroundColor);
         }
         if (hasMoreProfilesToSort()) {
             Debug.Log("No button clicked. Current profile: " + currentCharacterProfile.characterName);
