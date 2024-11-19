@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3b75071187ec7488c18aa41df494fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godImage: {fileID: 21300000, guid: dfb0a40b7ed5c47d0a820343822fe834, type: 3}
+  godImage: {fileID: 21300000, guid: b8b6b4d95988bac42909a0e87fe3edc9, type: 3}
 --- !u!1 &1461248100
 GameObject:
   m_ObjectHideFlags: 0
