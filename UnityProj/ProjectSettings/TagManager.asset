@@ -12,6 +12,7 @@ TagManager:
   - Soul
   - Undefined
   - Guard
+  - SettingsCanvas
   layers:
   - Default
   - TransparentFX
