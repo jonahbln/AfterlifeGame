@@ -33,15 +33,18 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueAfterMgame3.unity
     guid: 79411471192ecf54c819277a810b7e05
   - enabled: 1
-    path: Assets/Scenes/DialogueAfterMgame4.unity
-    guid: bf326dc959578b4419faa38385aff185
+    path: Assets/Scenes/DialogueBeforeMgame4.unity
+    guid: e79c54a6cd5a1b54cae3812a4b569f15
   - enabled: 1
     path: Assets/Scenes/SoulSortingGame.unity
     guid: d3053071f347a46e7be41db07ecac17a
   - enabled: 1
+    path: Assets/Scenes/DialogueAfterMgame4.unity
+    guid: bf326dc959578b4419faa38385aff185
+  - enabled: 1
     path: Assets/Scenes/DialogueAfterMgame5.unity
     guid: 630cba7719dd0fe41822fa9973ced567
   - enabled: 1
-    path: Assets/Scenes/DialogueBeforeMgame4.unity
-    guid: e79c54a6cd5a1b54cae3812a4b569f15
+    path: Assets/Scenes/QRCODE.unity
+    guid: 4eca4ec69fa5a0249b4d58049aff1507
   m_configObjects: {}
