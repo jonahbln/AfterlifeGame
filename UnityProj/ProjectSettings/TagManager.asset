@@ -8,6 +8,8 @@ TagManager:
   - DropZoneTag
   - Note
   - Activator
+  - Wall
+  - Soul
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Background
-  - 
-  - 
+  - Soul
+  - Guard
   - 
   - 
   - 
