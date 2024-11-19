@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     private float timeLeft = 30f;
     private int score = 10;
-    private bool isGameOver = false;
+    public bool isGameOver = false;
 
     void Update()
     {
