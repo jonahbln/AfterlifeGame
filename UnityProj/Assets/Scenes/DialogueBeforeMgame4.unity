@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f4388b3803c7b43a450bf6b16f7527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: DialogueBeforeMgame4
+  nextSceneName: SoulSortingGame
 --- !u!222 &709817887
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -310,10 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONAsset: {fileID: 4900000, guid: 793842226a8f5a444afe58e2c43e136b, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: c627dfb652302cf4d9a7a99152e221b5, type: 3}
   canvas: {fileID: 1917058132}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
-  buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
+  buttonPrefab: {fileID: 11455116, guid: d10f3bcc2a521445686d54e2c8acef95, type: 3}
   choiceFont: {fileID: 12800000, guid: 46845d1b7d6ef432cb9e1f7a655602bb, type: 3}
   choiceFontSize: 48
 --- !u!82 &709817889
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab0077421a192410490c05658b8466c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfb0a40b7ed5c47d0a820343822fe834, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
