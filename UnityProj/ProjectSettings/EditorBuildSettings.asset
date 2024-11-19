@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Minigame2.unity
     guid: 26ea5eb52ba5c474599671e9de388a63
   - enabled: 1
+    path: Assets/Scenes/Minigame5.unity
+    guid: 872cf61fda68c354e9049311f2325292
+  - enabled: 1
     path: Assets/Scenes/DialogueAfterMgame2.unity
     guid: 80186856a10e542c5a0646e42acdaf0e
   - enabled: 1

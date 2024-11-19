@@ -25,6 +25,10 @@ public class SoulClicked : MonoBehaviour
                     gameManager.CollectPoint();
                     Destroy(hit.collider.gameObject);
                 }
+                if (hit.collider.CompareTag("Guard"))
+                {
+                    hit.collider.gameObject.transform.localScale = hit.collider.gameObject.transform.localScale * 1.5f;
+                }
             }
         }
     }

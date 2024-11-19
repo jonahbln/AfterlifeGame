@@ -32,6 +32,7 @@ public class SoulSortProfileManager : MonoBehaviour
         inkDialogueManager = FindObjectOfType<CallableInkDialogue>();
         yesButton = GameObject.Find("YesButton").GetComponent<Button>();
         noButton = GameObject.Find("NoButton").GetComponent<Button>();
+        toastPopup.SetActive(false);
         Restart();
     }
 
@@ -117,9 +118,10 @@ public class SoulSortProfileManager : MonoBehaviour
         Text toastPopupText = toastPopup.GetComponentInChildren<Text>();
 
         // Set message and background color
-        toastPopup.SetActive(true);
         toastPopupText.text = message;
         toastPopupImage.color = backgroundColor;
+
+        toastPopup.SetActive(true);
 
         // Start coroutine to hide the toast after 1 second
         StartCoroutine(HideToastAfterDelay(2f)); 
