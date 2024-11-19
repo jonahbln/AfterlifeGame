@@ -168,7 +168,7 @@ public class SoulSortProfileManager : MonoBehaviour
             }
         }
 
-        if (incorrectCount == 0) {
+        if (incorrectCount < 2) {
             ShowGameResult(true);
         } else {
             ShowGameResult(false);
