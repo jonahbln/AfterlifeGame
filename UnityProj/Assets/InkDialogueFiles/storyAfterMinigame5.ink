@@ -24,4 +24,4 @@
     *[Goodbye]
     *[Thank you]
 - PLAYTEST OVER
-    *[Main Menu]
+    *[Go To Feedback Form]
