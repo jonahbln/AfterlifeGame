@@ -11,12 +11,5 @@ public class BounceOnWall : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Vector2 normal = collision.contacts[0].normal;
-            rb.velocity = Vector2.Reflect(rb.velocity, normal);
-        }
-    }
+
 }
