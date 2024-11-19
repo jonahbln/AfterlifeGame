@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 /**
 This class manages the character profiles used for the soul sorting game
@@ -11,6 +12,8 @@ public class SoulSortProfileManager : MonoBehaviour
 {
     public List<CharacterProfileScriptableObject> allCharacterProfiles;
     public GameObject toastPopup;
+
+    public GameObject verdictScreen; // verdict screen component
 
     private CharacterProfileScriptableObject currentCharacterProfile; // the current profile we are sorting
     private Queue<CharacterProfileScriptableObject> characterProfiles;  // the queue of profiles to sort
@@ -22,18 +25,19 @@ public class SoulSortProfileManager : MonoBehaviour
     private Color correctBackgroundColor = new Color(202f / 255f, 252f / 255f, 164f/ 255f, 1f);
     private Color incorrectBackgroundColor = new Color(252f / 255f, 164f / 255f, 164f/ 255f, 1f);
 
-
+    #region Unity methods 
     // Start is called before the first frame update
     void Start()
     {
         inkDialogueManager = FindObjectOfType<CallableInkDialogue>();
         yesButton = GameObject.Find("YesButton").GetComponent<Button>();
         noButton = GameObject.Find("NoButton").GetComponent<Button>();
-        characterProfiles = new Queue<CharacterProfileScriptableObject>(allCharacterProfiles);
-        yesCharacterProfiles = new List<CharacterProfileScriptableObject>();
-        noCharacterProfiles = new List<CharacterProfileScriptableObject>();
-        QueueCharacterProfile();
+        Restart();
     }
+
+
+    #endregion 
+
 
     /**
     Are there more profiles to sort?
@@ -84,11 +88,9 @@ public class SoulSortProfileManager : MonoBehaviour
         } else {
             ShowToastMessage("It seems like you have chosen poorly", this.incorrectBackgroundColor);
         }
-        if (hasMoreProfilesToSort()) {
-            Debug.Log("Yes button clicked. Current profile: " + currentCharacterProfile.name);
-            yesCharacterProfiles.Add(currentCharacterProfile);
-            QueueCharacterProfile();
-        }
+        yesCharacterProfiles.Add(currentCharacterProfile);
+
+        OnVerdictMade();
     }
 
     /**
@@ -100,11 +102,9 @@ public class SoulSortProfileManager : MonoBehaviour
         } else {
             ShowToastMessage("It seems like you have chosen wisely", this.correctBackgroundColor);
         }
-        if (hasMoreProfilesToSort()) {
-            Debug.Log("No button clicked. Current profile: " + currentCharacterProfile.characterName);
-            noCharacterProfiles.Add(currentCharacterProfile);
-            QueueCharacterProfile();
-        }
+        noCharacterProfiles.Add(currentCharacterProfile);
+
+        OnVerdictMade();
     }
 
     /**
@@ -132,5 +132,89 @@ public class SoulSortProfileManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         toastPopup.SetActive(false);
+    }
+
+    /**
+    * This method should be called when the player has made the verdict on a soul.
+    * It should be called after the player has clicked the yes or no button.
+    */
+    private void OnVerdictMade() {
+        if (hasMoreProfilesToSort()) {
+            QueueCharacterProfile();
+        } else {
+            EvaluatePerformance();
+        }
+    }
+
+    /**
+    * This method should be called when the player has finished sorting all the profiles 
+    * to evaluate if the player has sorted all the souls correctly. 
+    */
+    private void EvaluatePerformance() {
+        int correctCount = 0;
+        int incorrectCount = 0;
+        foreach (CharacterProfileScriptableObject profile in yesCharacterProfiles) {
+            if (profile.verdict) {
+                correctCount++;
+            } else {
+                incorrectCount++;
+            }
+        }
+        foreach (CharacterProfileScriptableObject profile in noCharacterProfiles) {
+            if (!profile.verdict) {
+                correctCount++;
+            } else {
+                incorrectCount++;
+            }
+        }
+
+        if (incorrectCount == 0) {
+            ShowGameResult(true);
+        } else {
+            ShowGameResult(false);
+        }
+    }
+
+    /**
+    * Restarts the game if the player has not sorted all the souls correctly
+    */
+    public void Restart() {
+        characterProfiles = new Queue<CharacterProfileScriptableObject>(allCharacterProfiles);
+        yesCharacterProfiles = new List<CharacterProfileScriptableObject>();
+        noCharacterProfiles = new List<CharacterProfileScriptableObject>();
+        QueueCharacterProfile();
+    }
+
+    /**
+    * Shows the final page after the player has sorted all the souls
+    */
+    private void ShowGameResult(bool won)
+    {
+        Debug.Log(verdictScreen);
+        Text verdictText = verdictScreen.GetComponentInChildren<Text>();
+        Button verdictButton = verdictScreen.GetComponentInChildren<Button>();
+
+        // Set message and background color
+        verdictScreen.SetActive(true);
+        verdictText.text = won ? "Well done! You have done well and managed to sort all the souls correctly." : "Mistakes cannot be made. Use better judgement next time.";
+        
+        verdictButton.GetComponentInChildren<Text>().text = won ? "Continue" : "Try Again";
+
+        verdictButton.gameObject.AddComponent(typeof(EventTrigger));
+        EventTrigger trigger = verdictButton.gameObject.GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerClick;
+        entry.callback.AddListener( (eventData) => { 
+            if (won) {
+                FindObjectOfType<SceneTransition>().LoadNextScene();
+            } else {
+                Restart();
+                verdictScreen.SetActive(false);
+            }
+        });
+        trigger.triggers.Add(entry);
+
+        // // Start coroutine to hide the toast after 1 second
+        // StartCoroutine(HideToastAfterDelay(2f)); 
     }
 }
