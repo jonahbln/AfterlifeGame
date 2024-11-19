@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class QuitGameOnKeypress : MonoBehaviour {
 	
 	public KeyCode key = KeyCode.Escape;
-	
-	void Update () {
-		if(Input.GetKeyDown(key)) Application.Quit();
+	public GameObject settingsCanvas;
+
+    void Update () {
+		if(Input.GetKeyDown(key))
+		{
+            settingsCanvas.SetActive(true);
+        }
 	}
 }
