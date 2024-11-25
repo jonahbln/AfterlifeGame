@@ -31,7 +31,6 @@ public class Note : MonoBehaviour
         }
 
         transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
-
     }
 
     private void FixedUpdate()
