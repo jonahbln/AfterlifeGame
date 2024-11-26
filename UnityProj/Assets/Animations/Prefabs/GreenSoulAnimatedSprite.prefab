@@ -134,4 +134,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.25
   upperBound: 1.5
-  lowerBound: 0
+  lowerBound: 1
