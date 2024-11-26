@@ -534,14 +534,14 @@ MonoBehaviour:
   - Both of you decided to get a dog and raise it together at the age of 16.
   - 'You saw them die right before your eyes during the apocalypse. '
   stage2TextTileStrings:
-  - "The \u201Chappy merchant\u201D has lived in the kingdom for as long as anyone
-    remembers. He was a generous man, and wisdom came with his age."
   - 'You first met him on your first trip to the marketplace where your father brought
     you to buy fabulous jewels. '
   - 'On subsequent visits, he would entertain you on your trips, telling you extravagant
     tales about the world beyond the kingdom. '
   - "Several years after your initial visit, he had to leave to travel to distant
     lands, saying, \u201Cyou will see me again in the future.\u201D"
+  - The merchant would frequently send gifts during the time he was away. You would
+    receive exotic spices and goods from far away kingdoms each year.
   - 'A few days ago, the happy merchant came back to visit, but that was when the
     apocalypse started. '
   stage3TextTileStrings:
