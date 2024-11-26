@@ -10,11 +10,16 @@ This class manages the character profiles used for the soul sorting game
 */
 public class SoulSortProfileManager : MonoBehaviour
 {
+    /** The assortment of soul game objects*/
+    [SerializeField]
+    public List<GameObject> soulPrefabs;
+
     public List<CharacterProfileScriptableObject> allCharacterProfiles;
     public GameObject toastPopup;
 
     public GameObject verdictScreen; // verdict screen component
 
+    private int currentProfileIndex; 
     private CharacterProfileScriptableObject currentCharacterProfile; // the current profile we are sorting
     private Queue<CharacterProfileScriptableObject> characterProfiles;  // the queue of profiles to sort
     private List<CharacterProfileScriptableObject> yesCharacterProfiles; // the profiles the player has said yes to 
@@ -72,12 +77,35 @@ public class SoulSortProfileManager : MonoBehaviour
         // if (currentCharacterProfile.characterDialogue.Count() > 0) {
         //     dialogues = currentCharacterProfile.characterDialogue.Aggregate((i, j) => i + "\n" + j);
         // }
+        SpawnNewSoulPrefab();
 
         nameText.text = currentCharacterProfile.characterName.Trim();
         if (currentCharacterProfile.characterDescription != null && currentCharacterProfile.characterDescription != "") {
             nameText.text += " [" + currentCharacterProfile.characterDescription.Trim() + "]";
         }
         // descriptionText.text = dialogues;
+    }
+    
+    /**
+    * Spawns a new soul prefab to the scene. 
+    * This method should be called when the player has made a verdict on the current soul
+    * and a new soul needs to be spawned.
+    */
+    private void SpawnNewSoulPrefab() {
+        GameObject soulPrefabContainer = GameObject.Find("SoulPrefabContainer");
+        foreach (Transform child in soulPrefabContainer.transform)
+        {
+            Destroy(child.gameObject); 
+        }
+
+        GameObject selectedPrefab = soulPrefabs[currentProfileIndex % soulPrefabs.Count];
+
+        GameObject spawnedSoul = Instantiate(selectedPrefab, soulPrefabContainer.transform.position, Quaternion.identity);
+
+        spawnedSoul.transform.SetParent(soulPrefabContainer.transform);
+
+        spawnedSoul.transform.localPosition = Vector3.zero; 
+        spawnedSoul.transform.localScale = new Vector3(30f, 30f, 1f); 
     }
 
     /**
@@ -141,6 +169,7 @@ public class SoulSortProfileManager : MonoBehaviour
     * It should be called after the player has clicked the yes or no button.
     */
     private void OnVerdictMade() {
+        currentProfileIndex++;
         if (hasMoreProfilesToSort()) {
             QueueCharacterProfile();
         } else {
@@ -153,6 +182,12 @@ public class SoulSortProfileManager : MonoBehaviour
     * to evaluate if the player has sorted all the souls correctly. 
     */
     private void EvaluatePerformance() {
+        GameObject soulPrefabContainer = GameObject.Find("SoulPrefabContainer");
+        foreach (Transform child in soulPrefabContainer.transform)
+        {
+            Destroy(child.gameObject); 
+        }
+
         int correctCount = 0;
         int incorrectCount = 0;
         foreach (CharacterProfileScriptableObject profile in yesCharacterProfiles) {
@@ -181,6 +216,7 @@ public class SoulSortProfileManager : MonoBehaviour
     * Restarts the game if the player has not sorted all the souls correctly
     */
     public void Restart() {
+        currentProfileIndex = 0;
         characterProfiles = new Queue<CharacterProfileScriptableObject>(allCharacterProfiles);
         yesCharacterProfiles = new List<CharacterProfileScriptableObject>();
         noCharacterProfiles = new List<CharacterProfileScriptableObject>();
@@ -207,6 +243,7 @@ public class SoulSortProfileManager : MonoBehaviour
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener( (eventData) => { 
+            Debug.Log("Button clicked");
             if (won) {
                 FindObjectOfType<SceneTransition>().LoadNextScene();
             } else {
@@ -215,8 +252,5 @@ public class SoulSortProfileManager : MonoBehaviour
             }
         });
         trigger.triggers.Add(entry);
-
-        // // Start coroutine to hide the toast after 1 second
-        // StartCoroutine(HideToastAfterDelay(2f)); 
     }
 }
