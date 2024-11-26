@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class PrologueDialogue : MonoBehaviour
 {
     public static event Action<Story> OnCreateStory;
+    public Canvas textBox;
+    public Image image;
 
     void Awake()
     {
@@ -59,9 +61,11 @@ public class PrologueDialogue : MonoBehaviour
         // If we've read all the content and there's no choices, the story is finished!
         else
         {
-            canvas.GetComponent<Image>().enabled = true;
+            image.gameObject.SetActive(true);
             doorbutton.interactable = true;
         }
+
+
     }
 
     // When we click the choice button, tell the story to choose that choice!
@@ -77,6 +81,7 @@ public class PrologueDialogue : MonoBehaviour
         Text storyText = Instantiate(textPrefab) as Text;
         storyText.text = text;
         storyText.transform.SetParent(canvas.transform, false);
+        textBox.GetComponent<TextBoxController>().Resize(text, story.currentChoices.Count);
     }
 
     // Creates a button showing the choice text
@@ -112,7 +117,7 @@ public class PrologueDialogue : MonoBehaviour
     public void doorClicked()
     {
         RemoveChildren();
-        canvas.GetComponent<Image>().sprite = keyPadImage;
+        image.sprite = keyPadImage;
         doorbutton.interactable = false;
         // Continue gets the next line of the story
         string text = "You walk up to the door, but there is a keypad. You hear a voice that says:\n The keys will light up, please follow the pattern. Failure to enter the correct code will result in a randomized code reset.";

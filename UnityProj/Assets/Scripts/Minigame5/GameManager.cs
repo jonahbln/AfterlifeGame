@@ -6,27 +6,30 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
-    private float timeLeft = 10f;
-    private int score = 0;
-    private int totalPoints = 15;
+    private float timeLeft = 30f;
+    private int score = 10;
+    public bool isGameOver = false;
 
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        timerText.text = "Time: " + Mathf.Round(timeLeft).ToString();
-
-        if (timeLeft <= 0)
+        if (!isGameOver)
         {
-            EndGame();
+            timeLeft -= Time.deltaTime;
+            timerText.text = "Time: " + Mathf.Round(timeLeft).ToString();
+
+            if (timeLeft <= 0)
+            {
+                EndGame();
+            }
         }
     }
 
     public void CollectPoint()
     {
-        score++;
-        scoreText.text = "Score: " + score;
+        score--;
+        scoreText.text = "Souls to Collect: " + score;
 
-        if (score >= totalPoints)
+        if (score == 0)
         {
             WinGame();
         }
@@ -40,5 +43,13 @@ public class GameManager : MonoBehaviour
     void WinGame()
     {
         timerText.text = "You Win!";
+        isGameOver = true;
+        Invoke("goToNextScene", 2);
+    }
+
+    void goToNextScene()
+    {
+        FindObjectOfType<SceneTransition>().LoadNextScene();
+
     }
 }

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 843459356}
   - component: {fileID: 843459355}
   - component: {fileID: 843459359}
+  - component: {fileID: 843459360}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -155,9 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawnObject: {fileID: 3836684152674390993, guid: 2b093a717ea0cc64e9ce5ddb37cf9d4b, type: 3}
-  numberOfSpawn: 15
-  spawnAreaWidth: 8
-  spawnAreaHeight: 5
+  numberOfSpawn: 6
+  spawnAreaWidth: 10
+  spawnAreaHeight: 7
 --- !u!114 &843459356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,9 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawnObject: {fileID: 8136031083178123804, guid: 7c0b064b87acac74e8673e8025207c6a, type: 3}
-  numberOfSpawn: 15
-  spawnAreaWidth: 8
-  spawnAreaHeight: 5
+  numberOfSpawn: 12
+  spawnAreaWidth: 10
+  spawnAreaHeight: 7
 --- !u!114 &843459357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +216,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7e11ee301c7b94c92744568d8c6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &843459360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843459354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f4388b3803c7b43a450bf6b16f7527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: DialogueAfterMgame5
 --- !u!1 &897182920
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,8 +434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -200, y: 25}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137522769
 MonoBehaviour:
@@ -443,7 +457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 'Souls to Collect : 10'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -733,8 +747,8 @@ Transform:
   m_GameObject: {fileID: 1477199289}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93, y: 5.44, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
+  m_LocalScale: {x: 25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -863,8 +877,8 @@ Transform:
   m_GameObject: {fileID: 1578632319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.32, y: 0.3, z: 0}
-  m_LocalScale: {x: 1, y: 15, z: 1}
+  m_LocalPosition: {x: 13, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1085,8 +1099,8 @@ Transform:
   m_GameObject: {fileID: 2113408294}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.34, y: 0.04, z: 0}
-  m_LocalScale: {x: 1, y: 15, z: 1}
+  m_LocalPosition: {x: -13, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1215,8 +1229,8 @@ Transform:
   m_GameObject: {fileID: 2126629762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.63, y: -5.43, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -9, z: 0}
+  m_LocalScale: {x: 25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

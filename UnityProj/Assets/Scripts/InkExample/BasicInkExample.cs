@@ -6,6 +6,8 @@ using UnityEngine.UI;
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
+	public Canvas textBox;
+	public Image image;
 	
     void Awake () {
 		// Remove the default message
@@ -58,7 +60,7 @@ public class BasicInkExample : MonoBehaviour {
 	void OnClickChoiceButton (Choice choice) {
 		story.ChooseChoiceIndex (choice.index);
 		RefreshView();
-		canvas.GetComponent<Image>().enabled = true;
+		image.enabled = true;
 	}
 
 	// Creates a textbox showing the the line of text
@@ -66,7 +68,8 @@ public class BasicInkExample : MonoBehaviour {
 		Text storyText = Instantiate (textPrefab) as Text;
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
-	}
+        textBox.GetComponent<TextBoxController>().Resize(text, story.currentChoices.Count);
+    }
 
 	// Creates a button showing the choice text
 	Button CreateChoiceView (string text) {

@@ -7,7 +7,7 @@ public class DialogueBeforeMgame4: MonoBehaviour
 {
     BasicInkExample inkScript;
     AudioSource source;
-    Image background;
+    public Image background;
     bool notPlaying = true;
     public Sprite godImage;
 
@@ -15,7 +15,6 @@ public class DialogueBeforeMgame4: MonoBehaviour
     {
         inkScript = FindAnyObjectByType<BasicInkExample>();
         source = GetComponent<AudioSource>();
-        background = transform.GetChild(0).GetComponent<Image>();
     }
 
     // Update is called once per frame

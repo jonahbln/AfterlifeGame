@@ -27,11 +27,15 @@ public class activator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key) && !delay)
+        if (Input.GetKeyDown(key))
         {
+            if (isPressed)
+            {
+                levelManager.addScore(-1f, "Don't Spam");
+            }
             sr.color = colorPressed;
             isPressed = true;
-            Invoke("Unpress", 0.1f);
+            Invoke("Unpress", 0.115f);
         }
         if (levelManager.winLossTrigger)
         {
@@ -55,11 +59,11 @@ public class activator : MonoBehaviour
                 Invoke("HitDelay", 0.125f);
                 float dist = transform.position.y - collision.transform.position.y;
                 string desc;
-                if (dist > 0.15)
+                if (dist > 0.35)
                 {
                     desc = "Late";
                 }
-                else if (dist < -0.15)
+                else if (dist < -0.35)
                 {
                     desc = "Early";
                 }
