@@ -23,13 +23,12 @@ public class TextBoxController : MonoBehaviour
 
     public void Resize(string text, int buttons)
     {
-        if (buttons > 0)
+        int extraLines = 0;
+        foreach (char c in text)
         {
-            transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Min(text.Length, 45) * widthScalar, (heightScalar * (Mathf.Clamp(Mathf.Floor(text.Length / charPerLine), 1.0f, 99.0f)) + (buttonHeight * buttons)));
         }
-        else
-        {
-            transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Min(text.Length, 45) * widthScalar, heightScalar * Mathf.Clamp(Mathf.Floor(text.Length / charPerLine), 1.0f, 99.0f));
-        }
+
+        transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Min(text.Length, 45) * widthScalar, (heightScalar * (Mathf.Clamp(Mathf.Floor(text.Length / charPerLine) + extraLines, 1.0f, 99.0f)) + (buttonHeight * buttons)));
+
     }
 }
