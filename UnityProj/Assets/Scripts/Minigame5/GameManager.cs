@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
-        timerText.text = "Time's up!";
+        timerText.text = "Time's up! Try Again";
+        isGameOver = true;
+        Invoke("redoScene", 2);
     }
 
     void WinGame()
@@ -50,6 +52,12 @@ public class GameManager : MonoBehaviour
     void goToNextScene()
     {
         FindObjectOfType<SceneTransition>().LoadNextScene();
+
+    }
+
+    void redoScene()
+    {
+        FindObjectOfType<SceneTransition>().ReloadScene();
 
     }
 }
