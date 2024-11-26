@@ -268,5 +268,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   widthScalar: 45
   charPerLine: 40
-  heightScalar: 42.5
-  buttonHeight: 125
+  heightScalar: 45
+  buttonHeight: 122.5

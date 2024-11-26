@@ -78,10 +78,37 @@ public class PrologueDialogue : MonoBehaviour
     // Creates a textbox showing the the line of text
     void CreateContentView(string text)
     {
-        Text storyText = Instantiate(textPrefab) as Text;
-        storyText.text = text;
-        storyText.transform.SetParent(canvas.transform, false);
         textBox.GetComponent<TextBoxController>().Resize(text, story.currentChoices.Count);
+
+        Text storyText = Instantiate(textPrefab) as Text;
+
+        storyText.transform.SetParent(canvas.transform, false);
+        StartCoroutine(EnterFullText(storyText, text));
+
+
+    }
+
+    IEnumerator EnterFullText(Text t, string print)
+    {
+        char[] fullTxtArray = print.ToCharArray();
+        string nextTxt = " ";
+        foreach (char c in print)
+        {
+            if (nextTxt[nextTxt.Length - 1] == '/' && c == 'n')
+            {
+                nextTxt = nextTxt.Substring(0, nextTxt.Length - 2);
+                nextTxt += '\n';
+            }
+            else
+            {
+                nextTxt += c;
+            }
+
+
+            t.text = nextTxt;
+
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 
     // Creates a button showing the choice text

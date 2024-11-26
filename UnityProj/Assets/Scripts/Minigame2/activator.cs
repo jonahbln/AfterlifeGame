@@ -11,9 +11,7 @@ public class activator : MonoBehaviour
     private SpriteRenderer sr;
     public Color colorPressed = Color.magenta;
     private bool isPressed = false;
-    private bool delay = false;
     LevelManager levelManager;
-    private AudioSource audioSource;
     private bool hitDelay = false;
 
     void Start()
@@ -21,7 +19,6 @@ public class activator : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         colorUnpressed = sr.color;
         levelManager = FindObjectOfType<LevelManager>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

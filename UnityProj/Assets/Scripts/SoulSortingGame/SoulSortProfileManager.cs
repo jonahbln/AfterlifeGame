@@ -242,6 +242,8 @@ public class SoulSortProfileManager : MonoBehaviour
         EventTrigger trigger = verdictButton.gameObject.GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
+        Debug.Log(entry.eventID);
+        Debug.Log(entry.callback);
         entry.callback.AddListener( (eventData) => { 
             Debug.Log("Button clicked");
             if (won) {
@@ -252,5 +254,6 @@ public class SoulSortProfileManager : MonoBehaviour
             }
         });
         trigger.triggers.Add(entry);
+        Debug.Log(trigger.triggers.Count);
     }
 }
