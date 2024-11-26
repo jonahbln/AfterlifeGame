@@ -28,7 +28,10 @@ public class TextBoxController : MonoBehaviour
         {
         }
 
-        transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Min(text.Length, 45) * widthScalar, (heightScalar * (Mathf.Floor(text.Length / charPerLine) + extraLines) + (buttonHeight * buttons)));
+        transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = 
+            new Vector2(
+                Mathf.Min(text.Length, 45) * widthScalar,
+                (heightScalar * (Mathf.Floor(text.Length / charPerLine) + extraLines) + (buttonHeight * buttons)));
 
     }
 }
