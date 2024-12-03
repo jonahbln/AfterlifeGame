@@ -23,3 +23,5 @@
 - [EON] I wish you luck. I will see you again, hopefully not soon.
     *[Goodbye]
     *[Thank you]
+- PLAYTEST OVER
+    *[Go To Feedback Form]

@@ -5,4 +5,4 @@
 - [EON] I will transport you to the chamber where they are held. You must collect their souls without interfering with any of my minions. For they will see you as a threat, and I cannot garantuee their cooperation.
     * [I understand]
 - [EON] Farewell, friend.
-    * Start
+    * [Start]

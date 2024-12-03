@@ -2,6 +2,7 @@ using Ink.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +11,25 @@ public class PrologueDialogue : MonoBehaviour
     public static event Action<Story> OnCreateStory;
     public Canvas textBox;
     public Image image;
+    private bool paused;
+    private Choice currentOption;
 
     void Awake()
     {
         // Remove the default message
         RemoveChildren();
         StartStory();
+    }
+
+    private void Update()
+    {
+        if (paused)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                OnClickChoiceButton(currentOption);
+            }
+        }
     }
 
     // Creates a new Story object with the compiled story which we can then play!
@@ -51,11 +65,20 @@ public class PrologueDialogue : MonoBehaviour
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
                 Choice choice = story.currentChoices[i];
-                Button button = CreateChoiceView(choice.text.Trim());
-                // Tell the button what to do when we press it
-                button.onClick.AddListener(delegate {
-                    OnClickChoiceButton(choice);
-                });
+                if (choice.text.Trim() == "next")
+                {
+                    currentOption = choice;
+                    paused = true;
+                    textBox.GetComponent<TextBoxController>().Resize();
+                }
+                else
+                {
+                    Button button = CreateChoiceView(choice.text.Trim());
+                    // Tell the button what to do when we press it
+                    button.onClick.AddListener(delegate {
+                        OnClickChoiceButton(choice);
+                    });
+                }
             }
         }
         // If we've read all the content and there's no choices, the story is finished!

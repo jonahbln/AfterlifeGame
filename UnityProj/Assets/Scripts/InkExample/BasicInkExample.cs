@@ -10,6 +10,8 @@ public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
 	public Canvas textBox;
 	public Image image;
+	private bool paused;
+	private Choice currentOption;
 	
     void Awake () {
 		// Remove the default message
@@ -17,8 +19,19 @@ public class BasicInkExample : MonoBehaviour {
 		StartStory();
 	}
 
-	// Creates a new Story object with the compiled story which we can then play!
-	void StartStory () {
+    private void Update()
+    {
+        if(paused)
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				OnClickChoiceButton(currentOption);
+			}
+		}
+    }
+
+    // Creates a new Story object with the compiled story which we can then play!
+    void StartStory () {
 		story = new Story (inkJSONAsset.text);
         if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
@@ -45,16 +58,26 @@ public class BasicInkExample : MonoBehaviour {
 		if(story.currentChoices.Count > 0) {
 			for (int i = 0; i < story.currentChoices.Count; i++) {
 				Choice choice = story.currentChoices [i];
-				Button button = CreateChoiceView (choice.text.Trim ());
-				// Tell the button what to do when we press it
-				button.onClick.AddListener (delegate {
-					OnClickChoiceButton (choice);
-				});
+                if (choice.text.Trim() == "next")
+				{
+					currentOption = choice;
+					paused = true;
+					textBox.GetComponent<TextBoxController>().Resize();
+                }
+				else
+				{
+                    Button button = CreateChoiceView(choice.text.Trim());
+                    // Tell the button what to do when we press it
+                    button.onClick.AddListener(delegate {
+                        OnClickChoiceButton(choice);
+                    });
+                }
 			}
 		}
 		// If we've read all the content and there's no choices, the story is finished!
 		else {
-			FindObjectOfType<SceneTransition>().LoadNextScene();
+            FindObjectOfType<SceneTransition>().LoadNextScene();
+
 		}
 	}
 
@@ -65,16 +88,14 @@ public class BasicInkExample : MonoBehaviour {
 		image.enabled = true;
 	}
 
-	// Creates a textbox showing the the line of text
-	void CreateContentView (string text) {
+    // Creates a textbox showing the the line of text
+    void CreateContentView (string text) {
         textBox.GetComponent<TextBoxController>().Resize(text, story.currentChoices.Count);
 
         Text storyText = Instantiate (textPrefab) as Text;
 
 		storyText.transform.SetParent (canvas.transform, false);
         StartCoroutine(EnterFullText(storyText, text));
-
-
     }
 
     IEnumerator EnterFullText(Text t, string print)
@@ -119,8 +140,8 @@ public class BasicInkExample : MonoBehaviour {
 		return choice;
 	}
 
-	// Destroys all the children of this gameobject (all the UI)
-	void RemoveChildren () {
+    // Destroys all the children of this gameobject (all the UI)
+    void RemoveChildren () {
 		int childCount = canvas.transform.childCount;
 		for (int i = childCount - 1; i >= 0; --i) {
 			Destroy (canvas.transform.GetChild (i).gameObject);
@@ -139,6 +160,6 @@ public class BasicInkExample : MonoBehaviour {
 	private Text textPrefab = null;
 	[SerializeField]
 	private Button buttonPrefab = null;
-	[SerializeField]
+    [SerializeField]
 	private Font choiceFont;
 }

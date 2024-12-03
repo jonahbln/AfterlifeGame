@@ -24,16 +24,21 @@ public class TextBoxController : MonoBehaviour
     public void Resize(string text, int buttons)
     {
         int extraLines = 1;
-        foreach (char c in text)
-        {
-        }
 
         transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = 
             new Vector2(
                 Mathf.Min(text.Length, (charPerLine)) * widthScalar,
                 (heightScalar * (Mathf.Floor(text.Length / charPerLine) + extraLines) + (buttonHeight * buttons)));
 
-        print("text len: " + text.Length);
+    }
+
+    public void Resize()
+    {
+        transform.GetChild(1).GetComponent<RectTransform>().sizeDelta =
+            new Vector2(
+                transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.x,
+                transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.y - buttonHeight);
+
 
     }
 }
