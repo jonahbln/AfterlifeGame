@@ -24,6 +24,13 @@ public class TextBoxController : MonoBehaviour
     public void Resize(string text, int buttons)
     {
         int extraLines = 1;
+        foreach (char c in text)
+        {
+            if (c == '/')
+            {
+                extraLines++;
+            }
+        }
 
         transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = 
             new Vector2(
