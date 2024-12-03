@@ -29,16 +29,7 @@ public class SoulClicked : MonoBehaviour
                 if (hit.collider.CompareTag("Guard"))
                 {
                     Vector3 guardScale = hit.collider.gameObject.transform.localScale;
-                    if (guardScale.x > 3)
-                    {
-                        hit.collider.gameObject.transform.localScale = guardScale * 2f;
-                        hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-                        hit.collider.gameObject.transform.position = new Vector3(0, 0, 0);
-                    }
-                    else
-                    {
-                        hit.collider.gameObject.transform.localScale = guardScale * 1.2f;
-                    }
+                    hit.collider.gameObject.transform.localScale = guardScale * 1.5f;
                 }
             }
         }

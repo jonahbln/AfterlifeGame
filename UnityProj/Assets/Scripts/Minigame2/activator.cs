@@ -56,21 +56,22 @@ public class activator : MonoBehaviour
                 Invoke("HitDelay", 0.125f);
                 float dist = transform.position.y - collision.transform.position.y;
                 string desc;
-                if (dist > 0.35)
+                if (dist > 0.2)
                 {
                     desc = "Late";
                 }
-                else if (dist < -0.35)
+                else if (dist < -0.3)
                 {
                     desc = "Early";
                 }
                 else
                 {
                     desc = "Nice!";
+                    transform.GetChild(0).GetComponent<Animator>().SetBool("hit", true);
                 }
+                Destroy(collision.gameObject);
                 levelManager.addScore((Mathf.Round(100 * (1.5f - Mathf.Abs(dist))) / 100), desc);
 
-                Destroy(collision.gameObject);
             }
         }
     }
@@ -79,5 +80,4 @@ public class activator : MonoBehaviour
     {
         hitDelay = false;
     }
-
 }
