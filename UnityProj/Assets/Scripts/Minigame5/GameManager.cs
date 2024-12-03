@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
     private float timeLeft = 30f;
-    private int score = 10;
+    private int score = 20;
     public bool isGameOver = false;
 
     void Update()
