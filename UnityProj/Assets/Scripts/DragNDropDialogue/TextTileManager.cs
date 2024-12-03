@@ -26,6 +26,7 @@ public class TextTileManager : MonoBehaviour {
     private List<GameObject> dropZones = new List<GameObject>(); 
     private List<GameObject> textTiles = new List<GameObject>();
 
+    private int offset = -50; // offset for the title tile
 
     void Start()
     {   
@@ -55,7 +56,7 @@ public class TextTileManager : MonoBehaviour {
     
             newDropZone.name = "DropZone" + i;
 
-            int dropZonePosition = dropZoneSpacing * (numberOfTiles / 2) - (dropZoneSpacing * i);
+            int dropZonePosition = this.offset + dropZoneSpacing * (numberOfTiles / 2) - (dropZoneSpacing * i);
             dropZoneRect.anchoredPosition = new Vector2(0, dropZonePosition);
 
             dropZones.Add(newDropZone);
@@ -88,7 +89,7 @@ public class TextTileManager : MonoBehaviour {
             RectTransform tileRect = newTile.GetComponent<RectTransform>();
             Text tileText = newTile.GetComponentInChildren<Text>();
 
-            int tilePosition = tileSpacing * ( numberOfTiles / 2 ) - (tileSpacing * i);
+            int tilePosition = this.offset + tileSpacing * ( numberOfTiles / 2 ) - (tileSpacing * i);
             tileRect.anchoredPosition = new Vector2(0, tilePosition);  
             tileText.text = shuffledTextTileStrings[i];
 
@@ -228,6 +229,7 @@ public class TextTileManager : MonoBehaviour {
         // Set message and background color
         submitToast.SetActive(true);
         submitToastText.text = message;
+        submitToastText.color = backgroundColor;
         submitToastImage.color = backgroundColor;
 
         // Start coroutine to hide the toast after 2 seconds
