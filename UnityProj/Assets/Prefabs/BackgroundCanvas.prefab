@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41509432, g: 0.405957, b: 0.405957, a: 0.78431374}
+  m_Color: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 0.78431374}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b838c142a8d326b429547ee2a9045072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthScalar: 45
-  charPerLine: 40
-  heightScalar: 45
-  buttonHeight: 122.5
+  widthScalar: 25
+  charPerLine: 90
+  heightScalar: 78
+  buttonHeight: 73

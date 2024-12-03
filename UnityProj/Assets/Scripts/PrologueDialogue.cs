@@ -107,7 +107,7 @@ public class PrologueDialogue : MonoBehaviour
 
             t.text = nextTxt;
 
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.025f);
         }
     }
 
@@ -122,7 +122,7 @@ public class PrologueDialogue : MonoBehaviour
         Text choiceText = choice.GetComponentInChildren<Text>();
         choiceText.text = text;
         choiceText.font = choiceFont;
-        choiceText.fontSize = choiceFontSize;
+        choiceText.fontSize = 24;
 
         // Make the button expand to fit the text
         HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
@@ -172,8 +172,6 @@ public class PrologueDialogue : MonoBehaviour
     private Button buttonPrefab = null;
     [SerializeField]
     private Font choiceFont;
-    [SerializeField]
-    private int choiceFontSize = 18;
     [SerializeField]
     private Button doorbutton;
     [SerializeField]
