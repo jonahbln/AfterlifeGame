@@ -144,7 +144,6 @@ public class PrologueDialogue : MonoBehaviour
         // Gets the text from the button prefab
         Text choiceText = choice.GetComponentInChildren<Text>();
         choiceText.text = text;
-        choiceText.font = choiceFont;
         choiceText.fontSize = 24;
 
         // Make the button expand to fit the text
