@@ -94,8 +94,8 @@ public class CallableInkDialogue : MonoBehaviour
 		choiceText.fontSize = choiceFontSize;
 
 		// Make the button expand to fit the text
-		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
-		layoutGroup.childForceExpandHeight = false;
+		// HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
+		// layoutGroup.childForceExpandHeight = false;
 
 		return choice;
 	}

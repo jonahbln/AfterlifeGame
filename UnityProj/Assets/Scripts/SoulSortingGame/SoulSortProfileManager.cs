@@ -148,6 +148,7 @@ public class SoulSortProfileManager : MonoBehaviour
         // Set message and background color
         toastPopupText.text = message;
         toastPopupImage.color = backgroundColor;
+        toastPopupImage.color = backgroundColor;
 
         toastPopup.SetActive(true);
 
