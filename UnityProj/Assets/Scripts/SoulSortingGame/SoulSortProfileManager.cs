@@ -27,8 +27,8 @@ public class SoulSortProfileManager : MonoBehaviour
     private Button yesButton;
     private Button noButton;
     private CallableInkDialogue inkDialogueManager;
-    private Color correctBackgroundColor = new Color(202f / 255f, 252f / 255f, 164f/ 255f, 1f);
-    private Color incorrectBackgroundColor = new Color(252f / 255f, 164f / 255f, 164f/ 255f, 1f);
+    private Color correctBackgroundColor = new Color(100f / 255f, 200f / 255f, 100f/ 255f, 1f);
+    private Color incorrectBackgroundColor = new Color(94f / 255f, 5f / 255f, 5f/ 255f, 1f);
 
     #region Unity methods 
     // Start is called before the first frame update
@@ -148,7 +148,7 @@ public class SoulSortProfileManager : MonoBehaviour
         // Set message and background color
         toastPopupText.text = message;
         toastPopupImage.color = backgroundColor;
-        toastPopupImage.color = backgroundColor;
+        toastPopupText.color = backgroundColor;
 
         toastPopup.SetActive(true);
 
@@ -229,7 +229,6 @@ public class SoulSortProfileManager : MonoBehaviour
     */
     private void ShowGameResult(bool won)
     {
-        Debug.Log(verdictScreen);
         Text verdictText = verdictScreen.GetComponentInChildren<Text>();
         Button verdictButton = verdictScreen.GetComponentInChildren<Button>();
 
@@ -243,10 +242,8 @@ public class SoulSortProfileManager : MonoBehaviour
         EventTrigger trigger = verdictButton.gameObject.GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
-        Debug.Log(entry.eventID);
-        Debug.Log(entry.callback);
+ 
         entry.callback.AddListener( (eventData) => { 
-            Debug.Log("Button clicked");
             if (won) {
                 FindObjectOfType<SceneTransition>().LoadNextScene();
             } else {
@@ -255,6 +252,5 @@ public class SoulSortProfileManager : MonoBehaviour
             }
         });
         trigger.triggers.Add(entry);
-        Debug.Log(trigger.triggers.Count);
     }
 }
