@@ -101,7 +101,6 @@ public class LevelManager : MonoBehaviour
     public void Win()
     {
         scoreboard.text = "You Win!!!";
-        Time.timeScale = 0.0f;
         audio.Pause();
         winLossTrigger = true;
         FindObjectOfType<SceneTransition>().LoadNextScene();
