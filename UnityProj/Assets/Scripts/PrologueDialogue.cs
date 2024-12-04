@@ -68,7 +68,6 @@ public class PrologueDialogue : MonoBehaviour
                 if (choice.text.Trim() == "next")
                 {
                     currentOption = choice;
-                    paused = true;
                     textBox.GetComponent<TextBoxController>().Resize();
                 }
                 else
@@ -84,7 +83,6 @@ public class PrologueDialogue : MonoBehaviour
         // If we've read all the content and there's no choices, the story is finished!
         else
         {
-            image.gameObject.SetActive(true);
             doorbutton.interactable = true;
         }
 
@@ -96,6 +94,8 @@ public class PrologueDialogue : MonoBehaviour
     {
         story.ChooseChoiceIndex(choice.index);
         RefreshView();
+        paused = false;
+        image.gameObject.SetActive(true);
     }
 
     // Creates a textbox showing the the line of text
@@ -132,6 +132,7 @@ public class PrologueDialogue : MonoBehaviour
 
             yield return new WaitForSeconds(0.025f);
         }
+        paused = true;
     }
 
     // Creates a button showing the choice text

@@ -61,7 +61,6 @@ public class BasicInkExample : MonoBehaviour {
                 if (choice.text.Trim() == "next")
 				{
 					currentOption = choice;
-					paused = true;
 					textBox.GetComponent<TextBoxController>().Resize();
                 }
 				else
@@ -86,6 +85,7 @@ public class BasicInkExample : MonoBehaviour {
 		story.ChooseChoiceIndex (choice.index);
 		RefreshView();
 		image.enabled = true;
+		paused = false;
 	}
 
     // Creates a textbox showing the the line of text
@@ -119,6 +119,7 @@ public class BasicInkExample : MonoBehaviour {
 
             yield return new WaitForSeconds(0.025f);
         }
+        paused = true;
     }
 
     // Creates a button showing the choice text

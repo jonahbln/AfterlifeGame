@@ -4,7 +4,7 @@ VAR playerChoice = 0
 - [???] Oh! Look at that, a mere mortal has stumbled upon my world. Where did you come from?
 * [Where am I?]
 * [What is this place?]
-- [???] Interesting... this interdimensional space sits at the seam of time and memories./n*Press the spacebar to advance the story when there are no dialogue options*
+- [???] Interesting... this interdimensional space sits at the seam of time and memories
 * [next]
 - [???] It’s been a while since a mortal has fallen upon my realm.
 * [And who the hell are you?]
