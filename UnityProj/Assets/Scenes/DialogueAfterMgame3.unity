@@ -316,9 +316,9 @@ MonoBehaviour:
   inkJSONAsset: {fileID: 4900000, guid: 793842226a8f5a444afe58e2c43e136b, type: 3}
   canvas: {fileID: 1917058132}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
-  buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
-  choiceFont: {fileID: 12800000, guid: 46845d1b7d6ef432cb9e1f7a655602bb, type: 3}
-  choiceFontSize: 48
+  buttonPrefab: {fileID: 11455116, guid: 3bbd596e414ca47acb97115ac15b92f2, type: 3}
+  choiceFont: {fileID: 12800000, guid: bda321ab38d3d47ec8d10e352f161bae, type: 3}
+  choiceTextSize: 32
 --- !u!82 &709817889
 AudioSource:
   m_ObjectHideFlags: 0
