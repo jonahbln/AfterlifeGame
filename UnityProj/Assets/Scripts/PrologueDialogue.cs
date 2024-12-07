@@ -145,7 +145,7 @@ public class PrologueDialogue : MonoBehaviour
         // Gets the text from the button prefab
         Text choiceText = choice.GetComponentInChildren<Text>();
         choiceText.text = text;
-        choiceText.fontSize = 24;
+        choiceText.fontSize = choiceTextSize;
 
         // Make the button expand to fit the text
         HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
@@ -199,4 +199,6 @@ public class PrologueDialogue : MonoBehaviour
     private Button doorbutton;
     [SerializeField]
     private Sprite keyPadImage;
+    [SerializeField]
+    private int choiceTextSize = 24;
 }

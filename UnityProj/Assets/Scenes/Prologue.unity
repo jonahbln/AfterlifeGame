@@ -440,11 +440,11 @@ MonoBehaviour:
   inkJSONAsset: {fileID: 4900000, guid: 09445e5ea12e5b440ac5ab6e5e35b695, type: 3}
   canvas: {fileID: 1917058132}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
-  buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
+  buttonPrefab: {fileID: 11455116, guid: 9a84a93be8fee4c7bb0bc83d081652c1, type: 3}
   choiceFont: {fileID: 12800000, guid: 46845d1b7d6ef432cb9e1f7a655602bb, type: 3}
-  choiceFontSize: 48
   doorbutton: {fileID: 1955786571}
   keyPadImage: {fileID: 21300000, guid: e05737c9be5f31a49b3b4d0fd195d6b4, type: 3}
+  choiceTextSize: 24
 --- !u!82 &709817886
 AudioSource:
   m_ObjectHideFlags: 0

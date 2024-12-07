@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 11420252}
   - component: {fileID: 11438922}
   m_Layer: 5
-  m_Name: DialogueSoulSorting
+  m_Name: StyledButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,8 +198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 165, y: -90.5}
-  m_SizeDelta: {x: 186, y: 0}
+  m_AnchoredPosition: {x: 256.5, y: -148.5}
+  m_SizeDelta: {x: 369, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22289712
 CanvasRenderer:
@@ -231,8 +231,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 35b002ae8af0d408f9192d38d1f7e189, type: 3}
-    m_FontSize: 100
-    m_FontStyle: 1
+    m_FontSize: 200
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 200
