@@ -2219,8 +2219,8 @@ MonoBehaviour:
   canvas: {fileID: 1790505357}
   textPrefab: {fileID: 11456674, guid: 12886bc5fe8384235ac19398b43e4dc3, type: 3}
   buttonPrefab: {fileID: 11455116, guid: d078e61340f8f4fe3a74a603896b22cb, type: 3}
-  choiceFont: {fileID: 12800000, guid: 46845d1b7d6ef432cb9e1f7a655602bb, type: 3}
-  choiceFontSize: 48
+  choiceFont: {fileID: 12800000, guid: 35b002ae8af0d408f9192d38d1f7e189, type: 3}
+  choiceFontSize: 64
 --- !u!1 &2008525394
 GameObject:
   m_ObjectHideFlags: 0
