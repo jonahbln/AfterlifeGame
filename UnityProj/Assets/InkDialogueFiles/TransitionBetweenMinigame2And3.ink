@@ -16,9 +16,10 @@
 - [ANVOLTO]: I’ll give you fragments of your memories about the people closest to you, and you have to unscramble them. Then I will grant you the rest of yours.
 * [next]
 
-- Reorder the memory fragments in an order that makes the most logical sense. /nPress 'SUBMIT' when you think the memory fragments have been ordered correctly!
-* [next] 
+- [ANVOLTO]: I have your memories of the lives of those around you, can you retell their story?
+* [next]
 
-- [ANVOLTO]: I have the memories of those around you, can you retell their story?
+- Drag and drop each memory fragment into the correct order. When you are finished press “Submit”. If you’re correct you’ll move on to the next story, if you fail - well that’s just embarrassing for you - then you must retry until you get it right.
+
 * [PLAY]
 
