@@ -3,7 +3,7 @@
 
 - I’ve worked with the underground gangs in an effort to overthrow the royal family.
 *[Proceed]
-.
+
 - But my drawings to rile unrest and tension has rarely led to much. 
 *[Proceed]
 
