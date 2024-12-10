@@ -1,4 +1,5 @@
 - [ANVOLTO] Now I will tell you why you are here...
+*[I am ready]
 - It was partly cloudy on a beautiful summer day. You had just finished your rounds at the castle and it was time for your subordinates to change shifts.
 * [next]
 - Your life has been devoted to the royal family and protecting the people in the city. Trade and commerce were flourishing, the people were happy, and you had an amazing home and social life.
