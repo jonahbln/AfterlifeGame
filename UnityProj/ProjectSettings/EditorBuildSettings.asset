@@ -15,20 +15,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue.unity
     guid: 4f58c3ef7336ab5468fa222f2486a726
   - enabled: 1
+    path: Assets/Scenes/InstructionsMgame1.unity
+    guid: 9c6bfc2ae3eb51e438e02a4e4cfb0389
+  - enabled: 1
     path: Assets/Scenes/Minigame1.unity
     guid: f706f45af3bfd0a4d99ac354a2081627
   - enabled: 1
     path: Assets/Scenes/DialogueAfterMgame1.unity
     guid: 326db396de3f5fd47bf194d5c237fded
   - enabled: 1
+    path: Assets/Scenes/InstructionsMgame2.unity
+    guid: 96f8843ba744226498598825d7eb205c
+  - enabled: 1
     path: Assets/Scenes/Minigame2.unity
     guid: 26ea5eb52ba5c474599671e9de388a63
   - enabled: 1
-    path: Assets/Scenes/Minigame5.unity
-    guid: 872cf61fda68c354e9049311f2325292
-  - enabled: 1
     path: Assets/Scenes/DialogueAfterMgame2.unity
     guid: 80186856a10e542c5a0646e42acdaf0e
+  - enabled: 1
+    path: Assets/Scenes/InstructionsMgame3.unity
+    guid: 8770b1f1930fbdc4896e34aa77f96f3f
   - enabled: 1
     path: Assets/Scenes/Minigame3.unity
     guid: 314e2a41b6fb70c4a8e727aeaa14e32c
@@ -39,11 +45,20 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueBeforeMgame4.unity
     guid: e79c54a6cd5a1b54cae3812a4b569f15
   - enabled: 1
+    path: Assets/Scenes/InstructionsMgame4.unity
+    guid: 4b9b0806a328c954b8234c1a5133d1b2
+  - enabled: 1
     path: Assets/Scenes/Minigame4.unity
     guid: d3053071f347a46e7be41db07ecac17a
   - enabled: 1
     path: Assets/Scenes/DialogueAfterMgame4.unity
     guid: bf326dc959578b4419faa38385aff185
+  - enabled: 1
+    path: Assets/Scenes/InstructionsMgame5.unity
+    guid: ca568dfc274ad6c44b2ecd106ec595aa
+  - enabled: 1
+    path: Assets/Scenes/Minigame5.unity
+    guid: 872cf61fda68c354e9049311f2325292
   - enabled: 1
     path: Assets/Scenes/DialogueAfterMgame5.unity
     guid: 630cba7719dd0fe41822fa9973ced567
