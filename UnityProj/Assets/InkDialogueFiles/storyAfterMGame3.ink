@@ -12,12 +12,11 @@
 * [next]
 - There wasn’t time to think or find your loved ones. You had a job to do and you would be damned if you couldn’t do everything within your power to protect your people.
 * [next]
-- Lava flooded the city's outskirts, and dread quickly set in with the realization: you’re trapped. It was over in less than an hour, as the ground beneath your feet imploded, collapsing the city into an abyss of destruction.
+-Lava flooded the city's outskirts, and dread quickly set in with the realization: you’re trapped. It was over in less than an hour, as the ground beneath your feet imploded, collapsing the city into an abyss of destruction.
 * [next]
-- Your friends, your family, your dog—all gone. And there was nothing you could do about it.
+-Your friends, your family, your dog—all gone. And there was nothing you could do about it.
 *[I- I'm Dead?]
--[ANVOLTO] 'Tis a tragedy
-- I am sorry for your loss. 
+-[ANVOLTO] 'Tis a tragedy/nI am sorry for your loss. 
 *[It cant be true!]
 *[I need to go back.]
 -[ANVOLTO] Because you so thoroughly entertained me, I’ll grant you this. I can reverse time for you back to before everyone died, before the apocalypse.

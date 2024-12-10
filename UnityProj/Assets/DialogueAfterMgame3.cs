@@ -18,7 +18,6 @@ public class DialogueAfterMgame3 : MonoBehaviour
     bool storyStarted = false;
     void Start()
     {
-        inkScript.textPrefab.color = Color.black;
         textBoxCanvas.transform.GetChild(1).GetComponent<Image>().color = Color.white;
     }
 
@@ -34,13 +33,19 @@ public class DialogueAfterMgame3 : MonoBehaviour
             textBoxCanvas.transform.GetChild(1).gameObject.SetActive(false);
         }
         
-        if (inkScript.story.currentChoices[0].text == "I- I'm Dead?" && storyStarted)
+        if (inkScript.story.currentChoices[0].text == "I- I'm Dead?")
         {
             imageLocation.sprite = godBackground;
             textCanvas.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.LowerCenter;
-            textBoxController.enabled = true;
-            inkScript.textPrefab = textPrefab;
             textBoxCanvas.transform.GetChild(1).gameObject.SetActive(true);
+        }
+
+        if (inkScript.story.currentText == "Lava flooded the city's outskirts, and dread quickly set in with the realization: you’re trapped." +
+            " It was over in less than an hour, as the ground beneath your feet imploded, collapsing the city into an abyss of destruction.")
+        {
+
+            textBoxController.enabled = true;
+
         }
     }
 }
