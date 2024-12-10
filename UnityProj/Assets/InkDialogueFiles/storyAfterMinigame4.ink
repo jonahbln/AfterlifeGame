@@ -4,5 +4,3 @@
     * [Where are they?]
 - [EON] I will transport you to the chamber where they are held. You must collect their souls without interfering with any of my minions. For they will see you as a threat, and I cannot garantuee their cooperation.
     * [I understand]
-- [EON] Click on each soul to collect them but beware of the angelic guards. Clicking on them will only anger them. They will increase in size and move faster. Good luck. Farewell, friend.
-    * [Start]

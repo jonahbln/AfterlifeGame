@@ -24,8 +24,8 @@ VAR playerChoice = 0
 - [ANVOLTO] Okay! I’ll do it…/n[Player] Thank yo-/n[ANVOLTO] …IF!! You can entertain me. It’s been so long since I’ve mingled with a mortal, how about we play a game? And if you win, I’ll restore your memories! Sound fair?
 * [Fine] 
 * [Bring it]
-- [ANVOLTO] I will procure a song, I ask you to play along. The notes will appear before you. You must hit the corresponding key at the correct time.
+- [ANVOLTO] I will procure a song, I ask you to play along.
 * [next]
-- [ANVOLTO] But here comes the twist! I will be messing with the flow of time as you play. And if you perform too poorly, I will NOT return your memories. Ready to begin?
-* [Yes]
+- [ANVOLTO] But here comes the twist! I will be messing with the flow of time as you play.
+* [next]
 -> END

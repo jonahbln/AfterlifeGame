@@ -41,7 +41,3 @@
 - [EON] Fine, I am feeling generous today. I have not had a break in centuries. If you cover my job while I rest a bit, I’ll release them. But, if you fail or mess it up, I will ensure you follow your people into the afterlife for good.
     *[I’ll do it]
     *[I won’t mess up]
-    
-- Each soul will present their case on why they should be let into heaven. You must decide which afterlife they should end up in. Don’t worry none of them are the souls of people from your kingdom. Click [continue] to hear them out. When you are ready to make your verdict, Click [They shall not pass] to send them to hell. Click [They may proceed] to let them into heaven.
- * [PLAY]
-

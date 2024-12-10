@@ -18,8 +18,3 @@
 
 - [ANVOLTO]: I have your memories of the lives of those around you, can you retell their story?
 * [next]
-
-- Drag and drop each memory fragment into the correct order. When you are finished press “Submit”. If you’re correct you’ll move on to the next story, if you fail - well that’s just embarrassing for you - then you must retry until you get it right.
-
-* [PLAY]
-
