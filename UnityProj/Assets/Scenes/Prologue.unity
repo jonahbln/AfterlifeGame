@@ -324,6 +324,10 @@ PrefabInstance:
       value: 27.5
       objectReference: {fileID: 0}
     - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
+      propertyPath: buttonHeight
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
       propertyPath: heightScalar
       value: 82
       objectReference: {fileID: 0}

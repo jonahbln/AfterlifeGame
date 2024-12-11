@@ -592,6 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 966627433}
   image: {fileID: 966627434}
+  theEnd: {fileID: 0}
   inkJSONAsset: {fileID: 4900000, guid: 0a323598f3d56d944a4957bba740d2d1, type: 3}
   canvas: {fileID: 199364059}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
@@ -744,6 +745,14 @@ PrefabInstance:
     - target: {fileID: 1292015867333645594, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
+      propertyPath: buttonHeight
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
+      propertyPath: heightScalar
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 6390100173978404189, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
       propertyPath: m_Camera
