@@ -11,6 +11,7 @@ public class BasicInkExample : MonoBehaviour {
 	public Canvas textBox;
 	public Image image;
 	public GameObject theEnd;
+	public Boolean isTheEnd = false;
 	private bool paused;
 	private Choice currentOption;
 
@@ -77,7 +78,15 @@ public class BasicInkExample : MonoBehaviour {
 		}
 		// If we've read all the content and there's no choices, the story is finished!
 		else {
-			Instantiate(theEnd, Vector3.zero, Quaternion.identity);
+			if(isTheEnd)
+			{
+				Instantiate(theEnd, Vector3.zero, Quaternion.identity);
+			}
+			else
+            {
+
+				FindObjectOfType<SceneTransition>().LoadNextScene();
+			}
 			
 
 		}

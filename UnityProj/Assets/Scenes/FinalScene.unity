@@ -316,6 +316,7 @@ MonoBehaviour:
   textBox: {fileID: 1918383535}
   image: {fileID: 1918383536}
   theEnd: {fileID: 6293335537979996402, guid: 859166abcc1b9de4eab3105c2cc97695, type: 3}
+  isTheEnd: 1
   inkJSONAsset: {fileID: 4900000, guid: 8cbbb63f2259c445d98948734de00562, type: 3}
   canvas: {fileID: 1917058132}
   textPrefab: {fileID: 11456674, guid: 4277801033c38cd4a85b3283692953c1, type: 3}
