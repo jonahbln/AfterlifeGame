@@ -1595,6 +1595,22 @@ PrefabInstance:
       value: Circle (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -1888,6 +1904,22 @@ PrefabInstance:
       value: Circle (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -2031,6 +2063,22 @@ PrefabInstance:
     - target: {fileID: 2288070563764533531, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
       propertyPath: m_Name
       value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2362765402734420286, guid: 0f3a4e52e89a4e9439a6fa34052e1740, type: 3}
       propertyPath: m_SortingOrder

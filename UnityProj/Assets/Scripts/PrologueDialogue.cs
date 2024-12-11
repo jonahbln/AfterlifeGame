@@ -11,6 +11,9 @@ public class PrologueDialogue : MonoBehaviour
     public static event Action<Story> OnCreateStory;
     public Canvas textBox;
     public Image image;
+    public GameObject doorRight;
+    public GameObject doorMiddle;
+    public GameObject doorLeft;
     private bool paused;
     private Choice currentOption;
 
@@ -96,6 +99,9 @@ public class PrologueDialogue : MonoBehaviour
         RefreshView();
         paused = false;
         image.gameObject.SetActive(true);
+        doorRight.gameObject.SetActive(true);
+        doorMiddle.gameObject.SetActive(true);
+        doorLeft.gameObject.SetActive(true);
     }
 
     // Creates a textbox showing the the line of text
@@ -167,6 +173,9 @@ public class PrologueDialogue : MonoBehaviour
     public void doorClicked()
     {
         RemoveChildren();
+        doorRight.gameObject.SetActive(false);
+        doorMiddle.gameObject.SetActive(false);
+        doorLeft.gameObject.SetActive(false);
         image.sprite = keyPadImage;
         doorbutton.interactable = false;
         // Continue gets the next line of the story

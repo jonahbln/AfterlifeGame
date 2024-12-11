@@ -30,6 +30,8 @@ public class SoulClicked : MonoBehaviour
                 {
                     Vector3 guardScale = hit.collider.gameObject.transform.localScale;
                     hit.collider.gameObject.transform.localScale = guardScale * 1.5f;
+                    Rigidbody2D rb = hit.collider.gameObject.GetComponent<Rigidbody2D>();
+                    rb.velocity = rb.velocity * Random.Range(1.5f, 2f);
                 }
             }
         }

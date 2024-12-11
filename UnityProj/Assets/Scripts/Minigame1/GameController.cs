@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
         color.b = 0.5f;
         renderer.color = color;
         PlaySound(index);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f - (roundWonChecker * 0.25f));
         color.r = 1f;
         color.g = 1f;
         color.b = 1f;
@@ -207,7 +207,7 @@ public class GameController : MonoBehaviour
         {
             SpriteRenderer renderer = circle.GetComponent<SpriteRenderer>();
             Color color = renderer.color;
-            color.a = 0.4f;
+            color.a = 0.2f;
             color.r = 0f;
             color.g = 1f;
             renderer.color = color;

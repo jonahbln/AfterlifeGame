@@ -10,8 +10,10 @@ public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
 	public Canvas textBox;
 	public Image image;
+	public GameObject theEnd;
 	private bool paused;
 	private Choice currentOption;
+
 	
     void Awake () {
 		// Remove the default message
@@ -75,7 +77,8 @@ public class BasicInkExample : MonoBehaviour {
 		}
 		// If we've read all the content and there's no choices, the story is finished!
 		else {
-            FindObjectOfType<SceneTransition>().LoadNextScene();
+			Instantiate(theEnd, Vector3.zero, Quaternion.identity);
+			
 
 		}
 	}
