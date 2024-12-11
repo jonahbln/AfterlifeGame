@@ -918,7 +918,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
+      propertyPath: charPerLine
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
+      propertyPath: widthScalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860509364161485721, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
+      propertyPath: heightScalar
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 6390100173978404189, guid: bf1da5d5785684c4cad7d7b195e28547, type: 3}
       propertyPath: m_Camera
@@ -955,7 +967,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1918383534}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b838c142a8d326b429547ee2a9045072, type: 3}
   m_Name: 

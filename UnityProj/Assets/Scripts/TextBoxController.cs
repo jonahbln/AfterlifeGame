@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TextBoxController : MonoBehaviour
 {
-    public float widthScalar = 40;
+    public float widthScalar = 42.5f;
     public float charPerLine = 35;
-    public float heightScalar = 90;
+    public float heightScalar = 95;
     public float buttonHeight = 100;
 
     // Start is called before the first frame update
