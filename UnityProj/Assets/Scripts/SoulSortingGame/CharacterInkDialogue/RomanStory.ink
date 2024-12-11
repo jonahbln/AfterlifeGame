@@ -1,11 +1,11 @@
 - I think I have lived a noble life.
-*[Next]
+*[Continue]
 
 - Serving my kingdom and bringing pride to my family name.
-*[Next]
+*[Continue]
 
 - As the oldest of seven, I intend to protect my brothers and sisters. 
-*[Next]
+*[Continue]
 
 - I want to pass into the afterlife and hopefully reunite with my siblings.
 
