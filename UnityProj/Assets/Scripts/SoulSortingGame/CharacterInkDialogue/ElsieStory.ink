@@ -1,11 +1,11 @@
 - I lived for the entertainment of others.
-*[Proceed]
+*[Next]
 
 - What’s more entertaining than a live murder on stage? 
-*[Proceed]
+*[Next]
 
 - The man broke the heart of my sister, leaving her at the altar, and stole money from my family!
-*[Proceed]
+*[Next]
 
 - I did everyone a favor and the world was a better place without him.
 
