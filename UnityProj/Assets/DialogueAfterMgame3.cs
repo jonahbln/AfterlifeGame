@@ -40,7 +40,7 @@ public class DialogueAfterMgame3 : MonoBehaviour
             textBoxCanvas.transform.GetChild(1).gameObject.SetActive(true);
         }
 
-        if (inkScript.story.currentText == "Lava flooded the city's outskirts, and dread quickly set in with the realization: you’re trapped." +
+        if (inkScript.story.currentText == "Lava flooded the city's outskirts, and dread quickly set in with the realization: youï¿½re trapped." +
             " It was over in less than an hour, as the ground beneath your feet imploded, collapsing the city into an abyss of destruction.")
         {
 
